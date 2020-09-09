@@ -78,8 +78,15 @@ $(function() {
       // Tell the server your username
       socket.emit('add user', username);
     }
-    if(username == 'green'){
-      
+    if(username == 'fade'){
+      FADE_TIME = 10000
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off('click');
+      $currentInput = $inputMessage.focus();
+
+      // Tell the server your username
+      socket.emit('add user', username);
     }
   }
 
@@ -215,12 +222,10 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    if(username != 'green'){
+    
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
-    }else{
-      return '#008000';
-    }
+    
     // Calculate color
 
   }
@@ -236,7 +241,7 @@ $(function() {
     if (event.which === 13) {
       if (username) {
         sendMessage();
-        socket.emit('stop typing');
+        socket.emit('geez stop typing');
         typing = false;
       } else {
         setUsername();
