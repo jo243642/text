@@ -63,7 +63,7 @@ ul {
 }
 
 .login.page .form .usernameInput {
-  background-color: transparent;
+  background-color: Black;
   border: none;
   border-bottom: 2px solid #fff;
   outline: none;
@@ -124,7 +124,7 @@ ul {
 }
 
 .message.typing .messageBody {
-  color: gray;
+  color: black;
 }
 
 .username {
