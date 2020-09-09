@@ -58,6 +58,29 @@ $(function() {
       // Tell the server your username
       socket.emit('add user', username);
     }
+    if(username == 'jackson'){
+      username = 'Why did you try to name yourself this?'
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off('click');
+      $currentInput = $inputMessage.focus();
+
+      // Tell the server your username
+      socket.emit('add user', username);
+    }
+      if(username == 'Jackson'){
+      username = 'Why did you try to name yourself this?'
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off('click');
+      $currentInput = $inputMessage.focus();
+
+      // Tell the server your username
+      socket.emit('add user', username);
+    }
+    if(username == 'green'){
+      
+    }
   }
 
   // Sends a chat message
@@ -192,9 +215,14 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    // Calculate color
+    if(username != 'green'){
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
+    }else{
+      return '#008000';
+    }
+    // Calculate color
+
   }
 
   // Keyboard events
