@@ -34,7 +34,7 @@ $(function() {
     } else {
       message += "there are " + data.numUsers + " participants";
       if (data.numUsers === 42){
-        
+        message += "Umm 42 people???"
       }
     }
     log(message);
@@ -65,7 +65,7 @@ $(function() {
     if (message && connected) {
       $inputMessage.val('');
       addChatMessage({
-        username: username,
+        username: username + ':',
         message: message
       });
       // tell server to execute 'new message' and send along one parameter
