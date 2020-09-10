@@ -152,3 +152,8 @@ ul {
   width: 100%;
   background-color: #242424;
 }
+
+.subtitle{
+  font-size: 100%;
+  font-weight: 50;
+}
