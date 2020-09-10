@@ -13,7 +13,7 @@ html,
 input {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: black;
+  color: #424242;
   backgroud-color: #1f1f1f;
 }
 
@@ -98,7 +98,6 @@ ul {
 .messages {
   font-size: 150%;
   color: #ffffff;
-  
 }
 
 .inputMessage {
@@ -118,7 +117,7 @@ ul {
 .chatArea {
   height: 100%;
   padding-bottom: 60px;
-  color: #1f1f1f;
+  color: #1c1c1c;
 }
 
 .messages {
@@ -130,7 +129,6 @@ ul {
 
 .message.typing .messageBody {
   color: black;
-  
 }
 
 .username {
@@ -152,5 +150,5 @@ ul {
   position: absolute;
   right: 0;
   width: 100%;
-  background-color: ##242424;
+  background-color: #242424;
 }

@@ -59,6 +59,12 @@ $(function() {
       if (data.numUsers === 42) {
         message += "Umm 42 people??? that's imperesive";
       }
+      if (username == "emma") {
+        message += "yes finally emma joined";
+      }
+      if (username == "Emma") {
+        message += "yes finally Emma joined";
+      }
     }
     log(message);
   }
