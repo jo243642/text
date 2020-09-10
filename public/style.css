@@ -14,6 +14,7 @@ input {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
   color: black;
+  backgroud-color: #1f1f1f;
 }
 
 html,
@@ -41,12 +42,13 @@ ul {
   height: 100%;
   position: absolute;
   width: 100%;
+  backgound-color: #1f1f1f;
 }
 
 /* Login Page */
 
 .login.page {
-  background-color: #000;
+  background-color: #1f1f1f;
 }
 
 .login.page .form {
@@ -60,7 +62,7 @@ ul {
 }
 
 .login.page .form .usernameInput {
-  background-color: Black;
+  background-color: #1f1f1f;
   border: none;
   border-bottom: 2px solid #fff;
   outline: none;
@@ -80,7 +82,7 @@ ul {
 
 .login.page .title,
 .login.page .usernameInput {
-  color: #fff;
+  color: #ffff;
   font-weight: 100;
 }
 
@@ -88,20 +90,24 @@ ul {
 
 .chat.page {
   display: none;
+  background-color: #1f1f1f;
 }
 
 /* Font */
 
 .messages {
   font-size: 150%;
+  color: #ffffff;
+  
 }
 
 .inputMessage {
   font-size: 100%;
+  color: #6b6b6b;
 }
 
 .log {
-  color: gray;
+  color: #1f1f1f;
   font-size: 70%;
   margin: 5px;
   text-align: center;
@@ -112,6 +118,7 @@ ul {
 .chatArea {
   height: 100%;
   padding-bottom: 60px;
+  color: #1f1f1f;
 }
 
 .messages {
@@ -123,6 +130,7 @@ ul {
 
 .message.typing .messageBody {
   color: black;
+  
 }
 
 .username {
@@ -144,4 +152,5 @@ ul {
   position: absolute;
   right: 0;
   width: 100%;
+  background-color: ##242424;
 }
