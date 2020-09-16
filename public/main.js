@@ -65,6 +65,7 @@ $(function() {
       if (username == "Emma") {
         message += "yes finally Emma joined";
       }
+      
     }
     log(message);
   }
@@ -82,6 +83,7 @@ $(function() {
 
       // Tell the server your username
       socket.emit("add user", username);
+      username = "You";
     }
     if (username == "jackson") {
       username = "Why did you try to name yourself this?";
