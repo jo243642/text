@@ -75,7 +75,7 @@ $(function() {
     username = cleanInput($usernameInput.val().trim());
 
     // If the username is valid
-    if (username) {
+    if (!username == "jackson") {
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
