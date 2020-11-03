@@ -1,7 +1,7 @@
 {
   "name": "TasisChat",
   "version": "0.0.1",
-  "description": "A simple chat program",
+  "description": "A node js chat app",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

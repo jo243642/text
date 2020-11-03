@@ -2,6 +2,7 @@
 
 $(function() {
   var FADE_TIME = 150; // ms
+  var TYPING_TIMER_LENGTH = 400; // ms
   var COLORS = [
     "#e21400",
     "#91580f",
@@ -43,6 +44,8 @@ $(function() {
   // Prompt for setting a username
   var username;
   var connected = false;
+  var typing = false;
+  var lastTypingTime;
   var $currentInput = $usernameInput.focus();
 
   var socket = io();
@@ -62,7 +65,6 @@ $(function() {
       if (username == "Emma") {
         message += "yes finally Emma joined";
       }
-      
     }
     log(message);
   }
@@ -72,7 +74,7 @@ $(function() {
     username = cleanInput($usernameInput.val().trim());
 
     // If the username is valid
-    if (!username == "jackson") {
+    if (username) {
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -80,7 +82,6 @@ $(function() {
 
       // Tell the server your username
       socket.emit("add user", username);
-      username = "You";
     }
     if (username == "jackson") {
       username = "Why did you try to name yourself this?";
@@ -215,7 +216,25 @@ $(function() {
       .text();
   }
 
+  // Updates the typing event
+  function updateTyping() {
+    if (connected) {
+      if (!typing) {
+        typing = true;
+        socket.emit("typing");
+      }
+      lastTypingTime = new Date().getTime();
 
+      setTimeout(function() {
+        var typingTimer = new Date().getTime();
+        var timeDiff = typingTimer - lastTypingTime;
+        if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
+          socket.emit("stop typing");
+          typing = false;
+        }
+      }, TYPING_TIMER_LENGTH);
+    }
+  }
 
   // Gets the 'X is typing' messages of a user
   function getTypingMessages(data) {
@@ -246,7 +265,20 @@ $(function() {
       $currentInput.focus();
     }
     // When the client hits ENTER on their keyboard
+    if (event.which === 13) {
+      if (username) {
+        sendMessage();
+        socket.emit("geez stop typing");
+        typing = false;
+      } else {
+        setUsername();
+      }
+    }
+  });
 
+  $inputMessage.on("input", function() {
+    updateTyping();
+  });
 
   // Click events
 
