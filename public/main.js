@@ -66,7 +66,7 @@ $(function() {
         message += "yes finally Emma joined";
       }
       if (username == "fade"){
-        FADE_TIME
+        FADE_TIME = 10000;
       }
     }
     log(message);
