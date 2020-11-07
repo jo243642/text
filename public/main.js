@@ -152,7 +152,11 @@ $(function() {
       options.fade = false;
       $typingMessages.remove();
     }
-
+    
+    if(data.username.length > 15){
+      data.username = "shame on you"
+    }
+    
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
       .css("color", getUsernameColor(data.username));
