@@ -253,7 +253,7 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
       hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-
+    
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
 
