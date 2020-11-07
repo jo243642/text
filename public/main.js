@@ -154,7 +154,7 @@ $(function() {
     }
 
 
-    if (data.username.length == 16) {
+    if (data.username.length == 17) {
       console.log(data.username.length)
       var $usernameDiv = $('<span class="username"/>')
         .text(data.username)
@@ -177,6 +177,7 @@ $(function() {
       }
 
       if (data.username.length > 15) {
+        console.log(data.username.length)
         data.username = "shame on you";
         console.log(data.username.length)
       }
