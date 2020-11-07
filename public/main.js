@@ -65,7 +65,7 @@ $(function() {
       if (username == "Emma") {
         message += "yes finally Emma joined";
       }
-      if (username == "fade"){
+      if (username == "fade") {
         FADE_TIME = 10000;
       }
     }
@@ -153,18 +153,21 @@ $(function() {
       $typingMessages.remove();
     }
 
-    
-    $.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
-    var userIP = data.ip
-    })
-    
-    if(userIP != "192.168.1.177"){
-      
+    $.get("https://www.cloudflare.com/cdn-cgi/trace", function(data) {});
+
+    if (data.ip != "192.168.1.177") {
+      var $usernameDiv = $('<span class="username"/>')
+        .text(data.username)
+        .css("color", "#ffffff");
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    } else {
+      var $usernameDiv = $('<span class="username"/>')
+        .text(data.username)
+        .css("color", getUsernameColor(data.username));
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message).css("color", "white");
     }
-    var $usernameDiv = $('<span class="username"/>')
-      .text(data.username)
-      .css("color", getUsernameColor(data.username));
-    var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+
+    
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
@@ -261,7 +264,7 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
       hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    
+
     var index = Math.abs(hash % COLORS.length);
 
     return COLORS[index];
