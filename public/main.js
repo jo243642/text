@@ -65,7 +65,7 @@ $(function() {
       if (username == "Emma") {
         message += "yes finally Emma joined";
       }
-      if (username == "fade") {
+      if (username == "fade"){
         FADE_TIME = 10000;
       }
     }
@@ -153,33 +153,10 @@ $(function() {
       $typingMessages.remove();
     }
 
-
-      if (data.message.length > 200) {
-        var confirmYorN = confirm(
-          "Are you sure you would like to send this message? It could be too large, or you might get kicked"
-        );
-        if (confirmYorN == true) {
-        } else {
-          data.message =
-            "This message was too long so the user decided not to send it.";
-        }
-      
-
-      if (data.username.length > 15) {
-        console.log(data.username.length);
-        data.username = "shame on you";
-        console.log(data.username.length);
-      }
-
-      var $usernameDiv = $('<span class="username"/>')
-        .text(data.username)
-        .css("color", getUsernameColor(data.username));
-      var $messageBodyDiv = $('<span class="messageBody">')
-        .text(data.message)
-        .css("color", "white")
-        .css("font-weight", "normal")
-        .css("font-style", "normal");
-    }
+    var $usernameDiv = $('<span class="username"/>')
+      .text(data.username)
+      .css("color", getUsernameColor(data.username));
+    var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
@@ -278,7 +255,6 @@ $(function() {
     }
 
     var index = Math.abs(hash % COLORS.length);
-
     return COLORS[index];
 
     // Calculate color
