@@ -153,6 +153,14 @@ $(function() {
       $typingMessages.remove();
     }
 
+    
+    $.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+    var userIP = data.ip
+    })
+    
+    if(userIP != "192.168.1.177"){
+      
+    }
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
       .css("color", getUsernameColor(data.username));
@@ -255,6 +263,7 @@ $(function() {
     }
     
     var index = Math.abs(hash % COLORS.length);
+
     return COLORS[index];
 
     // Calculate color
