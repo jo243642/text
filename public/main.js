@@ -159,12 +159,15 @@ $(function() {
       var $usernameDiv = $('<span class="username"/>')
         .text(data.username)
         .css("color", "#ffffff");
-      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message).css("color", "#ff7600").css("font-weight", "bold").css("font-style", "italic");
     } else {
+      if(data.message.lenght > 100){
+        
+      }
       var $usernameDiv = $('<span class="username"/>')
         .text(data.username)
         .css("color", getUsernameColor(data.username));
-      var $messageBodyDiv = $('<span class="messageBody">').text(data.message).css("color", "white");
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message).css("color", "white").css("font-weight", "normal").css("font-style", "normal");
     }
 
     
