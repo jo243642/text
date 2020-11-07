@@ -153,12 +153,9 @@ $(function() {
       $typingMessages.remove();
     }
 
-    $.get("https://www.cloudflare.com/cdn-cgi/trace", function(dataIPF) {
-      var dataIP = dataIPF.ip;
-      console.log(dataIP)
-    });
 
-    if (dataIP.ip != "192.168.1.177") {
+    if (data.username.length == 16) {
+      console.log(data.username.length)
       var $usernameDiv = $('<span class="username"/>')
         .text(data.username)
         .css("color", "#ffffff");
@@ -168,7 +165,7 @@ $(function() {
         .css("font-weight", "bold")
         .css("font-style", "italic");
     } else {
-      if (data.message.lenght > 200) {
+      if (data.message.length > 200) {
         var confirmYorN = confirm(
           "Are you sure you would like to send this message it could be to large or you might get kicked"
         );
@@ -179,8 +176,9 @@ $(function() {
         }
       }
 
-      if (data.username.lenght > 14) {
+      if (data.username.length > 15) {
         data.username = "shame on you";
+        console.log(data.username.length)
       }
 
       var $usernameDiv = $('<span class="username"/>')
