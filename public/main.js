@@ -154,32 +154,21 @@ $(function() {
     }
 
 
-    if (data.username.length == 17) {
-      console.log(data.username.length)
-      var $usernameDiv = $('<span class="username"/>')
-        .text(data.username)
-        .css("color", "#ffffff");
-      var $messageBodyDiv = $('<span class="messageBody">')
-        .text(data.message)
-        .css("color", "#ff7600")
-        .css("font-weight", "bold")
-        .css("font-style", "italic");
-    } else {
       if (data.message.length > 200) {
         var confirmYorN = confirm(
-          "Are you sure you would like to send this message it could be to large or you might get kicked"
+          "Are you sure you would like to send this message? It could be too large, or you might get kicked"
         );
         if (confirmYorN == true) {
         } else {
           data.message =
-            "This message was to long so the user decied not to send it";
+            "This message was too long so the user decided not to send it.";
         }
-      }
+      
 
       if (data.username.length > 15) {
-        console.log(data.username.length)
+        console.log(data.username.length);
         data.username = "shame on you";
-        console.log(data.username.length)
+        console.log(data.username.length);
       }
 
       var $usernameDiv = $('<span class="username"/>')
