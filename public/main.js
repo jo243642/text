@@ -153,15 +153,17 @@ $(function() {
       $typingMessages.remove();
     }
 
-    if (data.message.length > 200) {
-      var confirmYorN = confirm(
-        "Are you sure you would like to send this message? It could be too large, or you might get kicked"
-      );
-      if (confirmYorN == true) {
-      } else {
-        data.message =
-          "This message was too long so the user decided not to send it.";
-      }
+
+      if (data.message.length > 200) {
+        var confirmYorN = confirm(
+          "Are you sure you would like to send this message? It could be too large, or you might get kicked"
+        );
+        if (confirmYorN == true) {
+        } else {
+          data.message =
+            "This message was too long so the user decided not to send it.";
+        }
+      
 
       if (data.username.length > 15) {
         console.log(data.username.length);

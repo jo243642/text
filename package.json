@@ -1,6 +1,6 @@
 {
   "name": "TasisChat",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "A node js chat app made by Jackson McDowell",
   "main": "index.js",
   "scripts": {
