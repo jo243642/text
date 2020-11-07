@@ -153,24 +153,45 @@ $(function() {
       $typingMessages.remove();
     }
 
-    $.get("https://www.cloudflare.com/cdn-cgi/trace", function(data) {});
+    $.get("https://www.cloudflare.com/cdn-cgi/trace", function(dataIPF) {
+      var dataIP = dataIPF.ip;
+      console.log(dataIP)
+    });
 
-    if (data.ip != "192.168.1.177") {
+    if (dataIP.ip != "192.168.1.177") {
       var $usernameDiv = $('<span class="username"/>')
         .text(data.username)
         .css("color", "#ffffff");
-      var $messageBodyDiv = $('<span class="messageBody">').text(data.message).css("color", "#ff7600").css("font-weight", "bold").css("font-style", "italic");
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .text(data.message)
+        .css("color", "#ff7600")
+        .css("font-weight", "bold")
+        .css("font-style", "italic");
     } else {
-      if(data.message.lenght > 100){
-        
+      if (data.message.lenght > 200) {
+        var confirmYorN = confirm(
+          "Are you sure you would like to send this message it could be to large or you might get kicked"
+        );
+        if (confirmYorN == true) {
+        } else {
+          data.message =
+            "This message was to long so the user decied not to send it";
+        }
       }
+
+      if (data.username.lenght > 14) {
+        data.username = "shame on you";
+      }
+
       var $usernameDiv = $('<span class="username"/>')
         .text(data.username)
         .css("color", getUsernameColor(data.username));
-      var $messageBodyDiv = $('<span class="messageBody">').text(data.message).css("color", "white").css("font-weight", "normal").css("font-style", "normal");
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .text(data.message)
+        .css("color", "white")
+        .css("font-weight", "normal")
+        .css("font-style", "normal");
     }
-
-    
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
