@@ -65,7 +65,7 @@ $(function() {
       if (username == "Emma") {
         message += "yes finally Emma joined";
       }
-      if (username == "fade"){
+      if (username == "fade") {
         FADE_TIME = 10000;
       }
     }
@@ -152,11 +152,11 @@ $(function() {
       options.fade = false;
       $typingMessages.remove();
     }
-    
-    if(data.username.length > 15){
-      data.username = "shame on you"
+
+    if (data.username.length > 15) {
+      data.username = "shame on you";
     }
-    
+
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
       .css("color", getUsernameColor(data.username));
