@@ -60,10 +60,10 @@ $(function() {
         message += "Umm 42 people??? that's imperesive";
       }
       if (username == "emma") {
-        message += "yes finally emma joined";
+        message += ", yes finally emma joined";
       }
       if (username == "Emma") {
-        message += "yes finally Emma joined";
+        message += ", yes finally Emma joined";
       }
       if (username == "fade") {
         FADE_TIME = 10000;
