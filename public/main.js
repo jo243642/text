@@ -133,23 +133,6 @@ $(function() {
       $inputMessage.val("");
     }
 
-    if (ArrayOfMessages.includes("/red")) {
-      var message = message.replace("/red", "");
-      $('<span class="messageBody">').css("color", "red");
-
-      if (newMessage && connected) {
-        $inputMessage.val("");
-        addChatMessage({
-          username: username + ":",
-          message: message
-        });
-        message = "";
-
-        socket.emit("new message", message);
-      }
-      $inputMessage.val("");
-    }
-
     if (message && connected) {
       $inputMessage.val("");
       $('<span class="messageBody">').css("fount-weight", "normal");
@@ -195,10 +178,20 @@ $(function() {
       }
     }
 
+    var ArrayOfMessages = data.message.split(" ");
+    var message = data.message;
+
+    if (ArrayOfMessages.includes("/red")) {
+      var message = message.replace("/red", "");
+      data.message = message;
+      var $messageBodyDiv = $('<span class="messageBody">').css("color", "red");
+    } else {
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    }
+
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
       .css("color", getUsernameColor(data.username));
-    var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
