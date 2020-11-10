@@ -97,7 +97,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "Jackson") {
-      username = "I <3 Samy";    //                                                                                                     WOW SAMY GOOD JOB
+      username = "I <3 Samy"; //                                                                                                     WOW SAMY GOOD JOB
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -125,13 +125,20 @@ $(function() {
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
     var ArrayOfMessages = message.split(" ");
-    
-    if(ArrayOfMessages.includes("/log")){
-      message.replace("/log", "");
-      log(message);
+
+    if (ArrayOfMessages.includes("/log")) {
+      var newMessage = message.replace("/log", "");
+      log(newMessage);
       message = "";
+      $inputMessage.val("");
     }
-    
+
+    if (ArrayOfMessages.includes("/bold")) {
+      var newMessage = message.replace("/bold", "");
+      
+      $inputMessage.val("");
+    }
+
     if (message && connected) {
       $inputMessage.val("");
       addChatMessage({
@@ -139,8 +146,7 @@ $(function() {
         message: message
       });
       // tell server to execute 'new message' and send along one parameter
-      
-      
+
       socket.emit("new message", message);
     }
   }
@@ -166,12 +172,13 @@ $(function() {
     if (data.username.length > 16) {
       data.username = "shame on you";
     }
-    
+
     if (data.message.length > 300) {
-      var contunie = confirm("This message is really long are you sure you would like to send it")
-      if (contunie == true){
-        
-      }else{
+      var contunie = confirm(
+        "This message is really long are you sure you would like to send it"
+      );
+      if (contunie == true) {
+      } else {
         data.message = null;
       }
     }
