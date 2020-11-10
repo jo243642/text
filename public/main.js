@@ -124,6 +124,14 @@ $(function() {
     // Prevent markup from being injected into the message
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
+    var ArrayOfMessages = message.split(" ");
+    
+    if(ArrayOfMessages.includes("/log")){
+      message.replace("/log", "");
+      log(message);
+      message = "";
+    }
+    
     if (message && connected) {
       $inputMessage.val("");
       addChatMessage({
@@ -131,6 +139,8 @@ $(function() {
         message: message
       });
       // tell server to execute 'new message' and send along one parameter
+      
+      
       socket.emit("new message", message);
     }
   }
