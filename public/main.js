@@ -205,6 +205,15 @@ $(function() {
         .text(data.message);
     }
 
+    if (ArrayOfMessages.includes("(#")) {
+      var newMessage = 
+      var message = message.replace("/blue", "");
+      data.message = message;
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .css("color", "blue")
+        .text(data.message);
+    }
+
     if (
       !ArrayOfMessages.includes("/red") &&
       !ArrayOfMessages.includes("/green") &&
