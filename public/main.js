@@ -60,10 +60,10 @@ $(function() {
         message += "Umm 42 people??? that's imperesive";
       }
       if (username == "emma") {
-        message += ", yes finally emma joined";
+        message += ", love you emma";
       }
       if (username == "Emma") {
-        message += ", yes finally Emma joined";
+        message += ", love you Emma";
       }
       if (username == "fade") {
         FADE_TIME = 10000;
@@ -328,13 +328,13 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
-    log(data.username + " joined (yay)");
+    log(data.username + " joined (yay) ");
     addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
-    log(data.username + " left :( ");
+    log(data.username + " left :( (awwwww)");
     addParticipantsMessage(data);
     removeChatTyping(data);
   });
