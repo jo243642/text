@@ -157,17 +157,17 @@ $(function() {
       data.username = "shame on you";
     }
     
-    if (data.message.length > 300) {
-      var contunie = confirm("This message is really long are you sure you would like to send it")
-      if (contunie == true){
+//     if (data.message.length > 300) {
+//       var contunie = confirm("This message is really long are you sure you would like to send it")
+//       if (contunie == true){
         
-      }else{
-        data.message = null;
-      }
-    }
+//       }else{
+//         data.message = null;
+//       }
+//     }
 
     var $usernameDiv = $('<span class="username"/>')
-      .text(data.username)
+      .text(data.username)s
       .css("color", getUsernameColor(data.username));
     var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
 
