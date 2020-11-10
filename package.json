@@ -1,7 +1,7 @@
 {
   "name": "TasisChat",
   "version": "0.0.1",
-  "description": "A node js chat app made by Jackson McDowell",
+  "description": "A node js chat app made by Jackson McDowell and Samy El Moutia",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
