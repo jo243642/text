@@ -87,7 +87,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "jackson") {
-      username = "I Love Samy";
+      username = "Why did you try to name yourself this?";
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -97,7 +97,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "Jackson") {
-      username = "I Love Samy";
+      username = "Why did you try to name yourself this?";
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
