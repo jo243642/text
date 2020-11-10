@@ -187,7 +187,7 @@ $(function() {
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "red")
         .text(data.message);
-    } 
+    }
 
     if (ArrayOfMessages.includes("/green")) {
       var message = message.replace("/green", "");
@@ -204,9 +204,14 @@ $(function() {
         .css("color", "blue")
         .text(data.message);
     }
-    
-    if(!ArrayOfMessages.includes("/red") )
-    
+
+    if (
+      !ArrayOfMessages.includes("/red") &&
+      !ArrayOfMessages.includes("/green") &&
+      !ArrayOfMessages.includes("/blue")
+    ) {
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    }
 
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
