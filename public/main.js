@@ -133,14 +133,27 @@ $(function() {
       $inputMessage.val("");
     }
 
-    if (ArrayOfMessages.includes("/bold")) {
+    if (ArrayOfMessages.includes("/red")) {
       var newMessage = message.replace("/bold", "");
-      
+      $('<span class="messageBody">').css("fount-weight", bold);
+      message = "";
+      if (newMessage && connected) {
+        
+        $inputMessage.val("");
+        addChatMessage({
+          username: username + ":",
+          message: newMessage
+        });
+
+
+        socket.emit("new message", message);
+      }
       $inputMessage.val("");
     }
 
     if (message && connected) {
       $inputMessage.val("");
+      $('<span class="messageBody">').css("fount-weight", "normal");
       addChatMessage({
         username: username + ":",
         message: message
