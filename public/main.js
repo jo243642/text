@@ -214,10 +214,10 @@ $(function() {
       var newMessage = message.replace("(", "");
       newMessage = newMessage.replace(")", "");
 
-      var newMessage0 = newMessage[0].concat(newMessage[1]);
-      var colorForBody = newMessage0;
+      var newMessage0 = newMessage.split(" ");
+      var colorForBody = newMessage0[0];
 
-      var message = message.replace("(" + newMessage[0] + ")", "");
+      var message = message.replace("(" + colorForBody + ")", "");
       data.message = message;
 
       console.log(data.message);
