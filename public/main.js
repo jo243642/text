@@ -60,10 +60,10 @@ $(function() {
         message += "Umm 42 people??? that's imperesive";
       }
       if (username == "emma") {
-        message += ", yes finally emma joined";
+        message += ", love you";
       }
       if (username == "Emma") {
-        message += ", yes finally Emma joined";
+        message += ", love you";
       }
       if (username == "fade") {
         FADE_TIME = 10000;
@@ -97,7 +97,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "Jackson") {
-      username = "I <3 Samy";
+      username = "I <3 Samy";    //                                                                                                     WOW SAMY GOOD JOB
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
