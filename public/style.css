@@ -175,3 +175,14 @@ a {
   cursor: pointer;
   border-radius: 16px;
 }
+body {
+  padding: ;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}

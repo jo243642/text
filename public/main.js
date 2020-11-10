@@ -274,6 +274,11 @@ $(function() {
   }
 
   // Keyboard events
+  
+  function myFunction() {
+  var element = document.button;
+  element.onClick.toggle("dark-mode");
+}
 
   $window.keydown(function(event) {
     // Auto-focus the current input when a key is typed
