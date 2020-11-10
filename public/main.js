@@ -156,6 +156,10 @@ $(function() {
     if (data.username.length > 15) {
       data.username = "shame on you";
     }
+    
+    if (data.message.length > 300) {
+      
+    }
 
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
