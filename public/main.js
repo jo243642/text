@@ -60,10 +60,10 @@ $(function() {
         message += "Umm 42 people??? that's imperesive";
       }
       if (username == "emma") {
-        message += ", love you emma";
+        message += ", yes finally emma joined";
       }
       if (username == "Emma") {
-        message += ", love you Emma";
+        message += ", yes finally Emma joined";
       }
       if (username == "fade") {
         FADE_TIME = 10000;
@@ -87,7 +87,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "jackson") {
-      username = "I Love Samy";
+      username = "Why did you try to name yourself this?";
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -97,7 +97,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "Jackson") {
-      username = "I Love Samy";
+      username = "Why did you try to name yourself this?";
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -328,13 +328,13 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
-    log(data.username + " joined (yay) ");
+    log(data.username + " joined (yay)");
     addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
-    log(data.username + " left :( (awwwww)");
+    log(data.username + " left :( ");
     addParticipantsMessage(data);
     removeChatTyping(data);
   });
