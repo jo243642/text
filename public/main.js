@@ -179,6 +179,7 @@ $(function() {
     }
 
     var ArrayOfMessages = data.message.split(" ");
+    var ArrayOfChars = data.message.split("");
     var message = data.message;
 
     if (ArrayOfMessages.includes("/red")) {
@@ -205,19 +206,28 @@ $(function() {
         .text(data.message);
     }
 
-    if (ArrayOfMessages.includes("(#")) {
-      var newMessage = 
-      var message = message.replace("/blue", "");
+    if (
+      ArrayOfChars.includes("(") &&
+      ArrayOfChars.includes(")") &&
+      ArrayOfChars.includes("#")
+    ) {
+      var newMessage = message.replace("(", "");
+      newMessage = newMessage.replace(")", "");
+      var colorForBody = newMessage[0];
+      var message = message.replace("(" + newMessage + ")", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
-        .css("color", "blue")
+        .css("color", colorForBody)
         .text(data.message);
     }
 
     if (
       !ArrayOfMessages.includes("/red") &&
       !ArrayOfMessages.includes("/green") &&
-      !ArrayOfMessages.includes("/blue")
+      !ArrayOfMessages.includes("/blue") &&
+      !ArrayOfChars.includes("(") &&
+      !ArrayOfChars.includes(")") &&
+      !ArrayOfChars.includes("#")
     ) {
       var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
     }
