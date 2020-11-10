@@ -184,10 +184,29 @@ $(function() {
     if (ArrayOfMessages.includes("/red")) {
       var message = message.replace("/red", "");
       data.message = message;
-      var $messageBodyDiv = $('<span class="messageBody">').css("color", "red");
-    } else {
-      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .css("color", "red")
+        .text(data.message);
+    } 
+
+    if (ArrayOfMessages.includes("/green")) {
+      var message = message.replace("/green", "");
+      data.message = message;
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .css("color", "green")
+        .text(data.message);
     }
+
+    if (ArrayOfMessages.includes("/blue")) {
+      var message = message.replace("/blue", "");
+      data.message = message;
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .css("color", "blue")
+        .text(data.message);
+    }
+    
+    if(!ArrayOfMessages.includes("/red") )
+    
 
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
