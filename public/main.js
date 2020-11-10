@@ -179,7 +179,7 @@ $(function() {
     }
 
     var ArrayOfMessages = data.message.split(" ");
-    var ArrayOfChars = data.message.split("");
+    var ArrayOfChars = Array.from(data.message);
     var message = data.message;
 
     if (ArrayOfMessages.includes("/red")) {
@@ -213,9 +213,15 @@ $(function() {
     ) {
       var newMessage = message.replace("(", "");
       newMessage = newMessage.replace(")", "");
-      var colorForBody = newMessage[0];
-      var message = message.replace("(" + newMessage + ")", "");
+
+      var newMessage0 = newMessage[0].concat(newMessage[1]);
+      var colorForBody = newMessage0;
+
+      var message = message.replace("(" + newMessage[0] + ")", "");
       data.message = message;
+
+      console.log(data.message);
+      console.log(colorForBody);
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", colorForBody)
         .text(data.message);
