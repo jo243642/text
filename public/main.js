@@ -134,17 +134,16 @@ $(function() {
     }
 
     if (ArrayOfMessages.includes("/red")) {
-      var newMessage = message.replace("/bold", "");
-      $('<span class="messageBody">').css("fount-weight", bold);
-      message = "";
+      var message = message.replace("/red", "");
+      $('<span class="messageBody">').css("color", "red");
+
       if (newMessage && connected) {
-        
         $inputMessage.val("");
         addChatMessage({
           username: username + ":",
-          message: newMessage
+          message: message
         });
-
+        message = "";
 
         socket.emit("new message", message);
       }
