@@ -149,7 +149,7 @@ $(function() {
         console.log("yo");
         if (err) throw err;
       });
-
+ 
       socket.emit("new message", message);
     }
   }
