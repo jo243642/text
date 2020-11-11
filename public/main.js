@@ -88,7 +88,7 @@ $(function() {
     }
     if (username == "jackson") {
       $loginPage.fadeOut();
-      username = "I <3 Samy?";
+      username = "I <3 Samy";
       $chatPage.show();
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
