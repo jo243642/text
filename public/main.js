@@ -140,15 +140,7 @@ $(function() {
         username: username + ":",
         message: message
       });
-      // tell server to execute 'new message' and send along one parameter
-
-      var sdfdsjfl = require("save-the-chat.txt");
-
-      sdfdsjfl.writeFile("save-the-chat.txt", message, err => {
-        // In case of a error throw err.
-        console.log("yo");
-        if (err) throw err;
-      });
+      // tell server to execute 'new message' and send along one parameter 
 
       socket.emit("new message", message);
     }
