@@ -143,7 +143,7 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
 
-      var fs = require("fs");
+      var fs = require("Save-chat.txt");
 
       fs.writeFile("Save-chat.txt", message, err => {
         // In case of a error throw err.
