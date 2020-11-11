@@ -59,11 +59,11 @@ $(function() {
       if (data.numUsers === 42) {
         message += "Umm 42 people??? that's imperesive";
       }
-      if (username == "emma") {
-        message += ", love you";
+      if (username === "emma") {
+        message += ", love you ;)";
       }
-      if (username == "Emma") {
-        message += ", love you";
+      if (username === "Emma") {
+        message += ", love you ;)";
       }
       if (username == "fade") {
         FADE_TIME = 10000;
