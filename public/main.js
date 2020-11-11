@@ -120,7 +120,6 @@ $(function() {
 
   // Sends a chat message
   function sendMessage() {
-    console.log(require);
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
@@ -143,9 +142,9 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
 
-      var fs = require("Save-chat.txt");
+      var sdfdsjfl = path
 
-      fs.writeFile("Save-chat.txt", message, err => {
+      .writeFile("Save-chat.txt", message, err => {
         // In case of a error throw err.
         console.log("yo");
         if (err) throw err;
