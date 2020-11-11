@@ -142,9 +142,9 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
 
-      var sdfdsjfl = path
+      var sdfdsjfl = "Save-chat.txt";
 
-      .writeFile("Save-chat.txt", message, err => {
+      sdfdsjfl.writeFile("Save-chat.txt", message, err => {
         // In case of a error throw err.
         console.log("yo");
         if (err) throw err;
