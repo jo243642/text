@@ -142,6 +142,14 @@ $(function() {
       });
       // tell server to execute 'new message' and send along one parameter
 
+      const fs = require("fs");
+
+      fs.writeFile("Save-chat.txt", message, err => {
+        // In case of a error throw err.
+        console.log("yo");
+        if (err) throw err;
+      });
+
       socket.emit("new message", message);
     }
   }
@@ -399,13 +407,13 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
-    log(data.username + " joined (yay)");
+    log(data.username + " joined, yay");
     addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
-    log(data.username + " left :( ");
+    log(data.username + " left :(");
     addParticipantsMessage(data);
     removeChatTyping(data);
   });
