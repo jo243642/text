@@ -120,6 +120,7 @@ $(function() {
 
   // Sends a chat message
   function sendMessage() {
+    console.log(require);
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
@@ -149,7 +150,7 @@ $(function() {
         console.log("yo");
         if (err) throw err;
       });
- 
+
       socket.emit("new message", message);
     }
   }
