@@ -164,6 +164,8 @@ $(function() {
       options.fade = false;
       $typingMessages.remove();
     }
+    
+    index.SaveFunction(data.message);
 
     if (data.username.length > 16) {
       data.username = "shame on you";
