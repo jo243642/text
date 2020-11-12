@@ -1,5 +1,6 @@
 /* global io */
 
+
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -440,29 +441,6 @@ function TermsFunction() {
   }
 }
 
-function ContactFunction() {
-  var x = document.getElementById("Contact");
-  var y = document.getElementById("usernameInput");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-    y.style.display = "none";
-  } else {
-    x.style.display = "none";
-    y.style.display = "block";
-  }
-}
 
-function WriteToFile(passForm) { 
- 
-    set fso = CreateObject("Scripting.FileSystemObject");  
-    set s   = fso.CreateTextFile("<your Path>/filename.txt", True); 
- 
-    var firstName = document.getElementById('FirstName'); 
-    var lastName  = document.getElementById('lastName'); 
- 
-    s.writeline("First Name :" + FirstName); 
-    s.writeline("Last Name :" + lastName); 
- 
-    s.writeline("-----------------------------"); 
-    s.Close(); 
- } 
+
+
