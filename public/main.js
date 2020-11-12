@@ -423,6 +423,7 @@ $(function() {
 
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
+  
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -431,7 +432,7 @@ function closeNav() {
 }
 
 function TermsFunction() {
-  var x = document.getElementById("myDIV");
+  var x = document.getElementById("Credit");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
