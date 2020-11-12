@@ -1,6 +1,5 @@
 /* global io */
 
-
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -164,6 +163,13 @@ $(function() {
       options.fade = false;
       $typingMessages.remove();
     }
+
+    var fs = require("fs");
+
+    fs.writeFile("mynewfile3.txt", data.message + "/n", function(err) {
+      if (err) throw err;
+      console.log("Saved!");
+    });
 
     if (data.username.length > 16) {
       data.username = "shame on you";
@@ -424,7 +430,6 @@ $(function() {
 
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
-  
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -440,7 +445,3 @@ function TermsFunction() {
     x.style.display = "none";
   }
 }
-
-
-
-
