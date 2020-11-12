@@ -4,7 +4,7 @@
   "description": "A node js chat app made by Jackson McDowell and Samy El Moutia",
   "main": "index.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.12.4",
