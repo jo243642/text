@@ -74,11 +74,4 @@ io.on("connection", function(socket) {
   });
 });
 
-function SaveFunction(text) {
-  var fs = require("fs");
 
-  fs.writeFile("Save-chat.txt", text, function(err) {
-    if (err) throw err;
-    console.log("Saved!");
-  });
-}
