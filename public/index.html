@@ -23,7 +23,7 @@
         <div class="form">
           <h3 class="title">What's your nickname/username?</h3>
 
-          <input class="usernameInput" type="text" maxlength="14" />
+          <input class="usernameInput" type="text" maxlength="14" id="usernameInput"/>
 
           <h4 class="subtitle">
             (please don't pick someone else's name and make it school
@@ -50,15 +50,27 @@
               <a href="#">About</a>
               <a href="#" onclick="TermsFunction()">Credit</a>
               <a href="https://terms-for-tasis-chat.glitch.me">Terms</a>
-              <a href="#">Contact</a>
+              <a href="#" onclick="ContactFunction()">Contact</a>
               <a href="https://matias.ma/nsfw/">Samy</a>
 
               <p style="display:none;" id="Credit">
-                Made by Jackson and Samy <br>Disribution Glitch <br>User managenment
-                socket.io
+                Made by Jackson and Samy <br />Disribution Glitch <br />User
+                managenment socket.io
               </p>
-              
-              
+
+              <form
+                style="display:none;"
+                id="Contact"
+                onsubmit="WriteToFile(this)"
+              >
+                <label>Type your first name:</label>
+                <input type="text" name="FirstName" id="firstName" size="20" />
+
+                <label>Problem: </label>
+                <input type="text" name="LastName" id="lastName" size="20" />
+
+                <input type="submit" value="submit" />
+              </form>
             </div>
           </div>
 
