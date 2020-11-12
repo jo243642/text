@@ -1,5 +1,5 @@
 /* global io */
-
+import index
 
 $(function() {
   var FADE_TIME = 150; // ms
