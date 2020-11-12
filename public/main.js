@@ -421,12 +421,20 @@ $(function() {
   });
 });
 
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
 
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+function TermsFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
     x.style.display = "block";
+  } else {
+    x.style.display = "none";
   }
 }
