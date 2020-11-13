@@ -1,7 +1,7 @@
 /* global io */
 import index
 
-  $(function() {
+$(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
   var COLORS = [
@@ -440,7 +440,7 @@ function TermsFunction() {
     x.style.display = "none";
   }
 }
-   
+
 
 
 
