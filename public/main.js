@@ -89,7 +89,7 @@ $(function() {
     }
     if (username == "jackson") {
       $loginPage.fadeOut();
-      username = "I <3 Samy";
+      username.data = "I <3 Samy";
       $chatPage.show();
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
@@ -98,7 +98,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "Jackson") {
-      username = "I <3 Samy"; //                                                                                            WOW SAMY GOOD JOB / THANKS
+      username.data = "I <3 Samy"; //                                                                                            WOW SAMY GOOD JOB / THANKS
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
