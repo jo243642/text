@@ -265,3 +265,17 @@ a {
     right: 35px;
   }
 }
+
+
+button {
+  background-color: #5e5e5e;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 14px;
+}
