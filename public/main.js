@@ -168,7 +168,8 @@ $(function() {
     if (data.username.length > 16) {
       data.username = "shame on you";
     }
-
+    
+    
     if (data.message.length > 300) {
       var contunie = confirm(
         "This message is really long are you sure you would like to send it"
