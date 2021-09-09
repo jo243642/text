@@ -61,7 +61,7 @@ $(function() {
         message += "Umm 42 people??? that's imperesive";
       }
       if (username === "emma") {
-        message += ", love you ;)";
+        message += "ye";
       }
       if (username === "Emma") {
         message += ", love you ;)";
