@@ -64,7 +64,7 @@ $(function() {
         message += "ye";
       }
       if (username === "Emma") {
-        message += ", love you ;)";
+        message += ", )";
       }
       if (username == "fade") {
         FADE_TIME = 10000;
@@ -89,7 +89,7 @@ $(function() {
     }
     if (username == "jackson") {
       $loginPage.fadeOut();
-      username  = "I <3 Samy";
+      username  = "whyyyyy";
       $chatPage.show();
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
@@ -98,7 +98,7 @@ $(function() {
       socket.emit("add user", username);
     }
     if (username == "Jackson") {
-      username = "I <3 Samy"; //                                                                                            WOW SAMY GOOD JOB / THANKS
+      username = "whyyyyyy"; //                                                                                            WOW SAMY GOOD JOB / THANKS
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
