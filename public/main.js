@@ -51,28 +51,6 @@ $(function() {
 
   var socket = io();
 
-  function addParticipantsMessage(data) {
-    var message = "";
-    if (data.numUsers === 1) {
-      message += "there's 1 participant";
-    } else {
-      message += "there are " + data.numUsers + " participants";
-      if (data.numUsers === 42) {
-        message += "Umm 42 people??? that's imperesive";
-      }
-      if (username === "emma") {
-        message += "ye";
-      }
-      if (username === "Emma") {
-        message += ", )";
-      }
-      if (username == "fade") {
-        FADE_TIME = 10000;
-      }
-    }
-    log(message);
-  }
-
   // Sets the client's username
   function setUsername() {
     username = cleanInput($usernameInput.val().trim());
@@ -387,7 +365,7 @@ $(function() {
   socket.on("login", function(data) {
     connected = true;
     // Display the welcome message
-    var message = "Tasis Chat";
+    var message = "Serplent Web - Chat";
     log(message, {
       prepend: true
     });
