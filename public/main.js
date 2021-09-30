@@ -65,7 +65,7 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (username == "jackson") {
+    if (username == "shit") {
       $loginPage.fadeOut();
       username  = "whyyyyy";
       $chatPage.show();
@@ -75,8 +75,8 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (username == "Jackson") {
-      username = "whyyyyyy"; //                                                                                            WOW SAMY GOOD JOB / THANKS
+    if (username == "fuck") {
+      username = "E"; //                                                                                            WOW SAMY GOOD JOB / THANKS
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -365,7 +365,7 @@ $(function() {
   socket.on("login", function(data) {
     connected = true;
     // Display the welcome message
-    var message = "Serplent Web - Chat";
+    var message = "Chat Room";
     log(message, {
       prepend: true
     });
