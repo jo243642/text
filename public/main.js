@@ -341,6 +341,13 @@ $(function() {
         setUsername();
       }
     }
+    if (event.which === 48) {
+      if (username) {
+        sendMessage();
+      } else {
+        setUsername();
+      }
+    }
   });
 
   $inputMessage.on("input", function() {
