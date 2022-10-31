@@ -52,8 +52,8 @@ $(function() {
   var socket = io();
 
   // Sets the client's username
-  function setUsername() {
-    username = cleanInput($usernameInput.val().trim());
+  function setUsername(input) {
+    username = cleanInput(input);
 
     // If the username is valid
     if (username) {
@@ -115,6 +115,14 @@ $(function() {
     // emojis
     if (ArrayOfMessages.includes(":radost:")) {
       message = message.replaceAll(":radost:", "\u263A")
+    }
+    
+    // nick
+    if (ArrayOfMessages.includes("/nick")) {
+      var newMessage = message.replace("/nick", "");
+      setUsername(newMessage);
+      message = "";
+      $inputMessage.val("");
     }
 
     if (message && connected) {
@@ -290,7 +298,7 @@ $(function() {
 
   // Updates the typing event
   function updateTyping() {
-    if (connected) {
+    if (connected) 
       if (!typing) {
         typing = true;
         socket.emit("typing");
@@ -343,7 +351,7 @@ $(function() {
         socket.emit("geez stop typing");
         typing = false;
       } else {
-        setUsername();
+        setUsername($usernameInput.val().trim());
       }
     }
   });
