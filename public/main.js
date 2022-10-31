@@ -120,6 +120,7 @@ $(function() {
     // nick
     if (ArrayOfMessages.includes("/nick")) {
       var newMessage = message.replace("/nick", "");
+      log(`${username} теперь известен как ${newMessage}`);
       setUsername(newMessage);
       message = "";
       $inputMessage.val("");
@@ -298,7 +299,7 @@ $(function() {
 
   // Updates the typing event
   function updateTyping() {
-    if (connected) 
+    if (connected) { 
       if (!typing) {
         typing = true;
         socket.emit("typing");
