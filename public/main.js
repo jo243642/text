@@ -47,7 +47,12 @@ $(function() {
   var connected = false;
   var typing = false;
   var lastTypingTime;
+  var admin = false;
   var $currentInput = $usernameInput.focus();
+  
+  const permissions = {
+    "longmessages": true
+  }
 
   var socket = io();
 
@@ -106,6 +111,12 @@ $(function() {
     var ArrayOfMessages = message.split(" ");
 
     if (ArrayOfMessages.includes("/log")) {
+      if (admin === false) {
+        $inputMessage.val("");
+        $('<span class="messageBody">').css("fount-weight", "normal");
+        return
+      }
+      
       var newMessage = message.replace("/log", "");
       log(newMessage);
       message = "";
@@ -119,18 +130,31 @@ $(function() {
     
     // nick
     if (ArrayOfMessages.includes("/nick")) {
-      
-      
       var newMessage = message.replace("/nick", "");
       log(`${username} теперь известен как ${newMessage}`);
       setUsername(newMessage);
       message = "";
       $inputMessage.val("");
     }
+    
+    // long msg confirmation
+    if (message.length > 300) {
+      var contunie = confirm(
+        "This message is really long are you sure you would like to send it"
+      );
+      if (contunie == false) {
+        message = null;
+      } else {
+        if (!permissions.longmessages) {
+          message = null;
+        }
+      }
+    }
 
     if (message && connected) {
       $inputMessage.val("");
       $('<span class="messageBody">').css("fount-weight", "normal");
+      
       addChatMessage({
         username: username + ":",
         message: message
@@ -161,17 +185,6 @@ $(function() {
 
     if (data.username.length > 25) {
       data.username = "shame on you";
-    }
-    
-    // 
-    if (data.message.length > 300) {
-      var contunie = confirm(
-        "This message is really long are you sure you would like to send it"
-      );
-      if (contunie == true) {
-      } else {
-        data.message = null;
-      }
     }
 
     var ArrayOfMessages = data.message.split(" ");
@@ -385,7 +398,6 @@ $(function() {
     log(message, {
       prepend: true
     });
-    addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'new message', update the chat body
@@ -396,13 +408,11 @@ $(function() {
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
     log(data.username + " зашел в чат");
-    addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
     log(data.username + " покинул чат");
-    addParticipantsMessage(data);
     removeChatTyping(data);
   });
 
@@ -415,6 +425,9 @@ $(function() {
   socket.on("stop typing", function(data) {
     removeChatTyping(data);
   });
+  
+  // Whenever admin.
+  socket.on("admin")
 });
 
 function openNav() {
