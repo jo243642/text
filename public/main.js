@@ -119,6 +119,8 @@ $(function() {
     
     // nick
     if (ArrayOfMessages.includes("/nick")) {
+      
+      
       var newMessage = message.replace("/nick", "");
       log(`${username} теперь известен как ${newMessage}`);
       setUsername(newMessage);
@@ -393,13 +395,13 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
-    log(data.username + " joined, yay");
+    log(data.username + " зашел в чат");
     addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
-    log(data.username + " left :(");
+    log(data.username + " покинул чат");
     addParticipantsMessage(data);
     removeChatTyping(data);
   });
