@@ -112,8 +112,9 @@ $(function() {
       $inputMessage.val("");
     }
     
+    // emojis
     if (ArrayOfMessages.includes(":radost:")) {
-      message = message.replace(":radost:", "\u263A")
+      message = message.replaceAll(":radost:", "\u263A")
     }
 
     if (message && connected) {
