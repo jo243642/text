@@ -111,6 +111,10 @@ $(function() {
       message = "";
       $inputMessage.val("");
     }
+    
+    if (ArrayOfMessages.includes(":radost:")) {
+      message = message.replace(":radost:", "\u263A")
+    }
 
     if (message && connected) {
       $inputMessage.val("");
@@ -337,13 +341,6 @@ $(function() {
         sendMessage();
         socket.emit("geez stop typing");
         typing = false;
-      } else {
-        setUsername();
-      }
-    }
-    if (event.which === 48) {
-      if (username) {
-        sendMessage();
       } else {
         setUsername();
       }
