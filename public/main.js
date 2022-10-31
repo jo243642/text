@@ -90,6 +90,9 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
+    if (localStorage.getItem('admin') === '1') {
+      admin = true;
+    }
     if (username == "fade") {
       FADE_TIME = 10000;
       $loginPage.fadeOut();
@@ -183,16 +186,16 @@ $(function() {
       $typingMessages.remove();
     }
 
-    if (data.username.length > 25) {
-      data.username = "shame on you";
-    }
+    /* if (data.username.length > 21) {
+      data.username = "клоун";
+    } */
 
     var ArrayOfMessages = data.message.split(" ");
     var ArrayOfChars = Array.from(data.message);
     var message = data.message;
 
     if (ArrayOfMessages.includes("/red")) {
-      var message = message.replace("/red", "");
+      var message = message.replace("/red ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "red")
@@ -200,7 +203,7 @@ $(function() {
     }
 
     if (ArrayOfMessages.includes("/green")) {
-      var message = message.replace("/green", "");
+      var message = message.replace("/green ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "green")
@@ -208,14 +211,14 @@ $(function() {
     }
 
     if (ArrayOfMessages.includes("/blue")) {
-      var message = message.replace("/blue", "");
+      var message = message.replace("/blue ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "blue")
         .text(data.message);
     }
 
-    if (
+    /* if (
       ArrayOfChars.includes("(") &&
       ArrayOfChars.includes(")") &&
       ArrayOfChars.includes("#")
@@ -234,15 +237,15 @@ $(function() {
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", colorForBody)
         .text(data.message);
-    }
+    } */ // what's up with that bullshit???
 
     if (
       !ArrayOfMessages.includes("/red") &&
       !ArrayOfMessages.includes("/green") &&
-      !ArrayOfMessages.includes("/blue") &&
+      !ArrayOfMessages.includes("/blue") /* &&
       !ArrayOfChars.includes("(") &&
       !ArrayOfChars.includes(")") &&
-      !ArrayOfChars.includes("#")
+      !ArrayOfChars.includes("#") */
     ) {
       var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
     }
@@ -427,7 +430,9 @@ $(function() {
   });
   
   // Whenever admin.
-  socket.on("admin")
+  socket.on("admin", function(data) {
+    admin = true;
+  });
 });
 
 function openNav() {
