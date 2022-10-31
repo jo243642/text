@@ -65,9 +65,9 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (username == "shit") {
+    if (username == "ralix") {
       $loginPage.fadeOut();
-      username  = "whyyyyy";
+      username  = "shprot";
       $chatPage.show();
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
@@ -75,8 +75,8 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (username == "fuck") {
-      username = "E"; //                                                                                            WOW SAMY GOOD JOB / THANKS
+    if (username == "kiro") {
+      username = "feik kiro"; //                                                                                            WOW SAMY GOOD JOB / THANKS
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off("click");
@@ -365,7 +365,7 @@ $(function() {
   socket.on("login", function(data) {
     connected = true;
     // Display the welcome message
-    var message = "Chat Room";
+    var message = "Winerecia";
     log(message, {
       prepend: true
     });
