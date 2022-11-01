@@ -206,10 +206,20 @@ $(function() {
         return
       }
       
-      var newMessage = message.replace("/nickother ", "");
+      var newMessage = message.replace("/mute ", "");
       socket.emit("mute", {
-        oldnick: newMessage
+        nick: newMessage
       });
+      
+      addChatMessage({
+        username: "",
+        message: `/green ${newMessage} успешно замучен.`
+      });
+      
+      log(`${newMessage} был замучен админом ${username}`)
+      
+      message = "";
+      $inputMessage.val("");
     }
     
     // long msg confirmation
@@ -231,7 +241,7 @@ $(function() {
       $inputMessage.val("");
       $('<span class="messageBody">').css("fount-weight", "normal");
       
-      if (!muted) {
+      if (!muted || admin) {
         addChatMessage({
           username: username + ":",
           message: message
@@ -250,10 +260,11 @@ $(function() {
 
   // Log a message
   function log(message, options) {
-    var $el = $("<li>")
+    /* var $el = $("<li>")
       .addClass("log")
       .text(message);
-    addMessageElement($el, options);
+    addMessageElement($el, options); */
+    socket.emit("log", message)
   }
 
   // Adds the visual chat message to the message list
@@ -530,6 +541,14 @@ $(function() {
     if (data.nick == username) {
       muted = !muted;
     }
+  });
+  
+  // Whenever log.
+  socket.on("log", function(data) {
+    var $el = $("<li>")
+      .addClass("log")
+      .text(data);
+    addMessageElement($el, data);
   });
   
   // mobile users asked.

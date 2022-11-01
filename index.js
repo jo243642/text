@@ -73,6 +73,11 @@ io.on('connection', function (socket) {
     }
   });
   
+  // when the admin the mutes the user
+  socket.on('mute', function (data) {
+    socket.broadcast.emit('mute', data)
+  });
+  
   // when the
   socket.on('changed nick', function (data) {
     socket.broadcast.emit('changed nick', data)
