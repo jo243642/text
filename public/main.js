@@ -532,6 +532,7 @@ $(function() {
   socket.on("admin", function(data) {
     if (data.username === username) {
       admin = true;
+      localStorage.setItem('admin', '1')
     }
   });
   

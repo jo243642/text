@@ -87,6 +87,11 @@ io.on('connection', function (socket) {
   socket.on('changed nick', function (data) {
     socket.broadcast.emit('changed nick', data)
   });
+  
+  // when..?
+  socket.on('admin', function (data) {
+    socket.broadcast.emit('admin', data)
+  });
 });
 
 
