@@ -503,6 +503,19 @@ $(function() {
       setUsername(data.newnick);
     }
   });
+  
+  // mobile users asked.
+  function login() {
+    if (username) {
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off("click");
+      $currentInput = $inputMessage.focus();
+
+      // Tell the server your username
+      socket.emit("add user", username);
+    }
+  };
 });
 
 function openNav() {
