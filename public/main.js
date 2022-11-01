@@ -134,7 +134,9 @@ $(function() {
     // nick
     if (ArrayOfMessages.includes("/nick")) {
       var newMessage = message.replace("/nick", "");
-      log(`${username} теперь известен как ${newMessage}`);
+      if (!muted) {
+        log(`${username} теперь известен как ${newMessage}`);
+      };
       setUsername(newMessage);
       message = "";
       $inputMessage.val("");
@@ -196,6 +198,20 @@ $(function() {
       admin = true;
     }
     
+    // mute
+    if (ArrayOfMessages.includes("/mute")) {
+      if (admin === false) {
+        $inputMessage.val("");
+        $('<span class="messageBody">').css("fount-weight", "normal");
+        return
+      }
+      
+      var newMessage = message.replace("/nickother ", "");
+      socket.emit("mute", {
+        oldnick: newMessage
+      });
+    }
+    
     // long msg confirmation
     if (message.length > 300) {
       var contunie = confirm(
@@ -215,13 +231,20 @@ $(function() {
       $inputMessage.val("");
       $('<span class="messageBody">').css("fount-weight", "normal");
       
-      addChatMessage({
-        username: username + ":",
-        message: message
-      });
-      // tell server to execute 'new message' and send along one parameter
+      if (!muted) {
+        addChatMessage({
+          username: username + ":",
+          message: message
+        });
+        // tell server to execute 'new message' and send along one parameter
 
-      socket.emit("new message", message);
+        socket.emit("new message", message);
+      } else {
+        addChatMessage({
+          username: '',
+          message: '/red Вы заткнуты админом!'
+        })
+      }
     }
   }
 
@@ -499,6 +522,13 @@ $(function() {
       setUsername(data.newnick);
     } else if (data.oldnick == '*') {
       setUsername(data.newnick);
+    }
+  });
+  
+  // Whenever admin mutes someone
+  socket.on("mute", function(data) {
+    if (data.nick == username) {
+      muted = !muted;
     }
   });
   
