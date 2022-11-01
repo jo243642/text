@@ -519,6 +519,13 @@ $(function() {
   document.querySelector('.loginbutton').onclick = () => {
     setUsername($usernameInput.val().trim());
   }
+  
+  // .send
+  document.querySelector('.send').onclick = () => {
+    sendMessage();
+    socket.emit("geez stop typing");
+    typing = false;
+  }
 });
 
 function openNav() {

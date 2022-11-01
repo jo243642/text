@@ -81,7 +81,7 @@ ul {
 
 .login.page .title,
 .login.page .usernameInput {
-  color: #ffff;
+  color: #ffffff;
   font-weight: 100;
 }
 
@@ -93,7 +93,12 @@ ul {
 }
 
 .inputs {
-  display: relative;
+  display: flex;
+}
+
+.send {
+  position: absolute;
+  left: 5px;
 }
 
 /* Font */
@@ -171,7 +176,7 @@ a {
 }
 /* Dropdown Button */
 .dropbtn {
-  background-color: #1f1f1;
+  background-color: #1f1f1f;
   color: black;
   padding: 16px;
   font-size: 16px;
