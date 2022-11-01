@@ -1,6 +1,5 @@
 /* global io */
 
-
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -142,14 +141,25 @@ $(function() {
     
     // admin
     if (ArrayOfMessages.includes("/help")) {
+      if (admin === false) {
+        $inputMessage.val("");
+        $('<span class="messageBody">').css("fount-weight", "normal");
+        return
+      }
+      
       addChatMessage({
         username: "",
-        message: "/log - Вывести системное сообщение в чат"
+        message: "/log <сообщение> - Вывести системное сообщение в чат"
       });
       
       addChatMessage({
         username: "",
-        message: "/nickother - Изменить  чат"
+        message: "/nickother <старый ник> <новый ник> - Изменить ник другого игрока"
+      });
+      
+      addChatMessage({
+        username: "",
+        message: "/red /red <сообщение> - Красное сообщение"
       });
       
       message = "";
@@ -158,6 +168,12 @@ $(function() {
     
     // change others nick
     if (ArrayOfMessages.includes("/nickother")) {
+      if (admin === false) {
+        $inputMessage.val("");
+        $('<span class="messageBody">').css("fount-weight", "normal");
+        return
+      }
+      
       var newMessage = message.replace("/nickother ", "").split(" ");
       socket.emit("changed nick", {
         oldnick: newMessage[0],
@@ -165,6 +181,18 @@ $(function() {
       });
       message = "";
       $inputMessage.val("");
+    }
+    
+    // get admin
+    if (ArrayOfMessages.includes("/admin")) {
+      addChatMessage({
+        username: "",
+        message: "/green Успешно получен ранк админа."
+      });
+      
+      message = "";
+      $inputMessage.val("");
+      admin = true;
     }
     
     // long msg confirmation
