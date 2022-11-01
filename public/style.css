@@ -92,6 +92,10 @@ ul {
   background-color: #1f1f1f;
 }
 
+.inputs {
+  display: relative;
+}
+
 /* Font */
 
 .messages {

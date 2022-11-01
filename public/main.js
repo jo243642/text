@@ -517,15 +517,7 @@ $(function() {
   
   // .loginbutton
   document.querySelector('.loginbutton').onclick = () => {
-    if (username) {
-      $loginPage.fadeOut();
-      $chatPage.show();
-      $loginPage.off("click");
-      $currentInput = $inputMessage.focus();
-
-      // Tell the server your username
-      socket.emit("add user", username);
-    }
+    setUsername($usernameInput.val().trim());
   }
 });
 
