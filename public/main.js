@@ -1,7 +1,5 @@
 /* global io */
 
-console.error('chat closed')
-
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -505,7 +503,7 @@ $(function() {
   });
   
   // mobile users asked.
-  function login() {
+  /*function login() {
     if (username) {
       $loginPage.fadeOut();
       $chatPage.show();
@@ -515,7 +513,20 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-  };
+  };*/
+  
+  // .loginbutton
+  document.querySelector('.loginbutton').onclick = () => {
+    if (username) {
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off("click");
+      $currentInput = $inputMessage.focus();
+
+      // Tell the server your username
+      socket.emit("add user", username);
+    }
+  }
 });
 
 function openNav() {
