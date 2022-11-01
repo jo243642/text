@@ -150,6 +150,7 @@ $(function() {
       } else {
         if (!permissions.longmessages) {
           message = null;
+          alert('You dont have enough permissions.')
         }
       }
     }
@@ -433,6 +434,13 @@ $(function() {
   socket.on("admin", function(data) {
     admin = true;
   });
+  
+  /* // Whenever admin changes your username
+  socket.on("changed nick", function(data) {
+    if (data.oldnick == username) {
+      setUsername(data.newnick);
+    }
+  }); Old and unused */
 });
 
 function openNav() {
