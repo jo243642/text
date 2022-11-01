@@ -140,6 +140,22 @@ $(function() {
       $inputMessage.val("");
     }
     
+    // admin
+    if (ArrayOfMessages.includes("/help")) {
+      addChatMessage({
+        username: "",
+        message: "/log - Вывести системное сообщение в чат"
+      });
+      
+      addChatMessage({
+        username: "",
+        message: "/nickother - Изменить  чат"
+      });
+      
+      message = "";
+      $inputMessage.val("");
+    }
+    
     // change others nick
     if (ArrayOfMessages.includes("/nickother")) {
       var newMessage = message.replace("/nickother ", "").split(" ");
@@ -443,7 +459,9 @@ $(function() {
   
   // Whenever admin.
   socket.on("admin", function(data) {
-    admin = true;
+    if (data.username === username) {
+      admin = true;
+    }
   });
   
   // Whenever admin changes your username
