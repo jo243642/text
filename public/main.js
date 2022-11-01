@@ -140,6 +140,17 @@ $(function() {
       $inputMessage.val("");
     }
     
+    // change others nick
+    if (ArrayOfMessages.includes("/nickother")) {
+      var newMessage = message.replace("/nickother ", "").split(" ");
+      socket.emit("changed nick", {
+        oldnick: newMessage[0],
+        newnick: newMessage[1]
+      });
+      message = "";
+      $inputMessage.val("");
+    }
+    
     // long msg confirmation
     if (message.length > 300) {
       var contunie = confirm(
@@ -435,12 +446,12 @@ $(function() {
     admin = true;
   });
   
-  /* // Whenever admin changes your username
+  // Whenever admin changes your username
   socket.on("changed nick", function(data) {
     if (data.oldnick == username) {
       setUsername(data.newnick);
     }
-  }); Old and unused */
+  });
 });
 
 function openNav() {

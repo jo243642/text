@@ -72,6 +72,11 @@ io.on('connection', function (socket) {
       });
     }
   });
+  
+  // when the
+  socket.on('changed nick', function (data) {
+    socket.broadcast.emit('changed nick', data)
+  });
 });
 
 
