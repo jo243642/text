@@ -1,5 +1,7 @@
 /* global io */
 
+console.error('chat closed')
+
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -47,6 +49,7 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var admin = false;
+  var muted = false;
   var $currentInput = $usernameInput.focus();
   
   const permissions = {
@@ -495,6 +498,8 @@ $(function() {
   // Whenever admin changes your username
   socket.on("changed nick", function(data) {
     if (data.oldnick == username) {
+      setUsername(data.newnick);
+    } else if (data.oldnick == '*') {
       setUsername(data.newnick);
     }
   });
