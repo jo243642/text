@@ -260,11 +260,19 @@ $(function() {
 
   // Log a message
   function log(message, options) {
-    /* var $el = $("<li>")
+    var $el = $("<li>")
       .addClass("log")
       .text(message);
-    addMessageElement($el, options); */
+    addMessageElement($el, options);
+    
     socket.emit("log", message)
+  }
+  
+  function locallog(message, options) {
+    var $el = $("<li>")
+      .addClass("log")
+      .text(message);
+    addMessageElement($el, options);
   }
 
   // Adds the visual chat message to the message list
@@ -489,7 +497,7 @@ $(function() {
     connected = true;
     // Display the welcome message
     var message = "Winerecia";
-    log(message, {
+    locallog(message, {
       prepend: true
     });
   });
@@ -501,12 +509,12 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
-    log(data.username + " зашел в чат");
+    locallog(data.username + " зашел в чат");
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
-    log(data.username + " покинул чат");
+    locallog(data.username + " покинул чат");
     removeChatTyping(data);
   });
 
