@@ -94,27 +94,22 @@ ul {
 
 .inputs {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .send {
   position: absolute;
-  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  width: 140px;
+  height: 50px;
 }
 
 /* Font */
 
-.messages {
-  font-size: 150%;
-  color: #ffffff;
-}
-
-.inputMessage {
-  font-size: 100%;
-  color: #e0e0e0;
-}
-
 .log {
-  color: ##c9c9c9;
+  color: #c9c9c9;
   font-size: 70%;
   margin: 5px;
   text-align: center;
@@ -132,6 +127,8 @@ ul {
 }
 
 .messages {
+  font-size: 150%;
+  color: #ffffff;
   height: 100%;
   margin: 0;
   overflow-y: scroll;
@@ -152,7 +149,9 @@ ul {
 /* Input */
 
 .inputMessage {
-  border: 10px solid #000;
+  font-size: 100%;
+  color: #e0e0e0;
+  border: 10px solid #000000;
   bottom: 0;
   height: 60px;
   left: 0;
@@ -160,7 +159,7 @@ ul {
   padding-left: 10px;
   position: absolute;
   right: 0;
-  width: 100%;
+  width: calc(100% - 150px);
   background-color: #242424;
 }
 
@@ -209,7 +208,7 @@ a {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #dddddd;
 }
 
 /* Show the dropdown menu on hover */
@@ -219,7 +218,7 @@ a {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #f1f1f;
+  background-color: #f1f1f1;
 }
 
 .overlay {
