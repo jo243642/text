@@ -90,12 +90,10 @@ io.on('connection', function (socket) {
   
   // when..?
   socket.on('admin', function (data) {
-    console.log('admin redeem?')
-    if (data.key == process.env.adminkey) {
-      console.log('admin redeemed')
-      socket.broadcast.emit('admin', {
-        username: data.username
-      })
+    if (data.key === process.env.adminkey) {
+      var newdata = data
+      newdata.key = '';
+      socket.broadcast.emit('admin redeem', newdata)
     }
   });
 });

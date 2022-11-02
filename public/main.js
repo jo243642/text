@@ -186,7 +186,6 @@ $(function() {
     // get admin
     if (ArrayOfMessages.includes("/admin")) {
       var newMessage = message.replace("/admin ", "");
-      console.log(newMessage)
       if (!!newMessage) { /* abusing javascript's bullshit notation
                              check if string empty: !!"" == false, !!"123abc" == true */
         socket.emit("admin", { 
@@ -530,7 +529,8 @@ $(function() {
   });
   
   // Whenever admin.
-  socket.on("admin", function(data) {
+  socket.on("admin redeem", function(data) {
+    console.log(data)
     if (data.username === username) {
       admin = true;
       addChatMessage({
