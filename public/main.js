@@ -186,8 +186,10 @@ $(function() {
     // get admin
     if (ArrayOfMessages.includes("/admin")) {
       var newMessage = message.replace("/admin ", "");
-      if (newMessage) {
-        socket.emit("admin", {
+      console.log(newMessage)
+      if (!!newMessage) { /* abusing javascript's bullshit notation
+                             check if string empty: !!"" == false, !!"123abc" == true */
+        socket.emit("admin", { 
           username: username,
           key: newMessage
         });
