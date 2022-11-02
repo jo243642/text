@@ -70,6 +70,9 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
+    if (localStorage.get('admin') === '1') {
+      admin = true;
+    }
     if (username == "ralix") {
       $loginPage.fadeOut();
       username  = "полушпрот";
@@ -130,7 +133,7 @@ $(function() {
     
     // nick
     if (ArrayOfMessages.includes("/nick")) {
-      var newMessage = message.replace("/nick", "");
+      var newMessage = message.replace("/nick ", "");
       if (!muted) {
         log(`${username} теперь известен как ${newMessage}`);
       };
@@ -243,6 +246,9 @@ $(function() {
       
       if (!muted || admin) {
         // check if the username is valid (only uppercase or lowercase latin letters without spaces)
+        console.log(/^[a-zA-Z0-9_]*$/.test(username))
+        console.log(username)
+        
         if (/^[a-zA-Z0-9_]*$/.test(username)) {
           addChatMessage({
             username: username + ":",
