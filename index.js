@@ -82,6 +82,9 @@ io.on('connection', function (socket) {
   socket.on('mute', function (data) {
     socket.broadcast.emit('mute', data)
   });
+  socket.on('unmute', function (data) {
+    socket.broadcast.emit('unmute', data)
+  });
   
   // when the
   socket.on('changed nick', function (data) {

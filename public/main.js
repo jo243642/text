@@ -70,7 +70,7 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (localStorage.get('admin') === '1') {
+    if (localStorage.getItem('admin') === '1') {
       admin = true;
     }
     if (username == "ralix") {
@@ -220,6 +220,30 @@ $(function() {
       });
       
       log(`${newMessage} был замучен админом ${username}`)
+      
+      message = "";
+      $inputMessage.val("");
+    }
+    
+    // unmute
+    if (ArrayOfMessages.includes("/mute")) {
+      if (admin === false) {
+        $inputMessage.val("");
+        $('<span class="messageBody">').css("fount-weight", "normal");
+        return
+      }
+      
+      var newMessage = message.replace("/mute ", "");
+      socket.emit("unmute", {
+        nick: newMessage
+      });
+      
+      addChatMessage({
+        username: "",
+        message: `/green ${newMessage} успешно размучен.`
+      });
+      
+      log(`${newMessage} был размучен админом ${username}`)
       
       message = "";
       $inputMessage.val("");
@@ -554,7 +578,14 @@ $(function() {
   // Whenever admin mutes someone
   socket.on("mute", function(data) {
     if (data.nick == username) {
-      muted = !muted;
+      muted = true;
+    }
+  });
+  
+  // Whenever admin unmutes someone
+  socket.on("unmute", function(data) {
+    if (data.nick == username) {
+      muted = false;
     }
   });
   
