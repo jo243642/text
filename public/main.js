@@ -79,7 +79,7 @@ $(function() {
 
       // Tell the server your username
       socket.emit("add user", username);
-    }
+    } /*
     if (username == "kiro") {
       username = "feik kiro"; //                                                                                            WOW SAMY GOOD JOB / THANKS
       $loginPage.fadeOut();
@@ -89,7 +89,7 @@ $(function() {
 
       // Tell the server your username
       socket.emit("add user", username);
-    }
+    } */
     if (username == "fade") {
       FADE_TIME = 10000;
       $loginPage.fadeOut();
@@ -242,13 +242,21 @@ $(function() {
       $('<span class="messageBody">').css("fount-weight", "normal");
       
       if (!muted || admin) {
-        addChatMessage({
-          username: username + ":",
-          message: message
-        });
-        // tell server to execute 'new message' and send along one parameter
+        // check if the username is valid (only uppercase or lowercase latin letters without spaces)
+        if (/^[a-zA-Z0-9_]*$/.test(username)) {
+          addChatMessage({
+            username: username + ":",
+            message: message
+          });
+          // tell server to execute 'new message' and send along one parameter
 
-        socket.emit("new message", message);
+          socket.emit("new message", message);
+        } else {
+          addChatMessage({
+            username: '',
+            message: '/red Неверный никнейм! Ваш никнейм должен состоять только из латинских букв.'
+          })
+        }
       } else {
         addChatMessage({
           username: '',
