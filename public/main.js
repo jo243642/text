@@ -226,14 +226,14 @@ $(function() {
     }
     
     // unmute
-    if (ArrayOfMessages.includes("/mute")) {
+    if (ArrayOfMessages.includes("/unmute")) {
       if (admin === false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/mute ", "");
+      var newMessage = message.replace("/unmute ", "");
       socket.emit("unmute", {
         nick: newMessage
       });
