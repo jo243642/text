@@ -90,9 +90,6 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (localStorage.getItem('admin') === '1') {
-      admin = true;
-    }
     if (username == "fade") {
       FADE_TIME = 10000;
       $loginPage.fadeOut();
@@ -188,14 +185,16 @@ $(function() {
     
     // get admin
     if (ArrayOfMessages.includes("/admin")) {
-      addChatMessage({
-        username: "",
-        message: "/green Успешно получен ранк админа."
-      });
+      var newMessage = message.replace("/admin ", "");
+      if (newMessage) {
+        socket.emit("admin", {
+          username: username,
+          key: newMessage
+        });
+      }
       
       message = "";
       $inputMessage.val("");
-      admin = true;
     }
     
     // mute
@@ -532,7 +531,10 @@ $(function() {
   socket.on("admin", function(data) {
     if (data.username === username) {
       admin = true;
-      localStorage.setItem('admin', '1')
+      addChatMessage({
+        username: "",
+        message: "/green Успешно получен ранк админа."
+      });
     }
   });
   
