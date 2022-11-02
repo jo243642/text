@@ -93,6 +93,7 @@ io.on('connection', function (socket) {
     if (data.key === process.env.adminkey) {
       var newdata = data
       newdata.key = '';
+      console.log(newdata)
       socket.broadcast.emit('admin redeem', newdata)
     }
   });

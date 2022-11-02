@@ -528,18 +528,6 @@ $(function() {
     removeChatTyping(data);
   });
   
-  // Whenever admin.
-  socket.on("admin redeem", function(data) {
-    console.log(data)
-    if (data.username === username) {
-      admin = true;
-      addChatMessage({
-        username: "",
-        message: "/green Успешно получен ранк админа."
-      });
-    }
-  });
-  
   // Whenever admin changes your username
   socket.on("changed nick", function(data) {
     if (data.oldnick == username) {
@@ -564,6 +552,18 @@ $(function() {
     addMessageElement($el, data);
   });
   
+  // Whenever admin.
+  socket.on("admin redeem", function(data) {
+    console.log(data)
+    if (data.username === username) {
+      admin = true;
+      addChatMessage({
+        username: "",
+        message: "/green Успешно получен ранк админа."
+      });
+    }
+  });
+  
   // mobile users asked.
   /*function login() {
     if (username) {
@@ -575,7 +575,7 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-  };*/
+  };*/ // nvm no one asked
   
   // .loginbutton
   document.querySelector('.loginbutton').onclick = () => {
