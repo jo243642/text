@@ -336,7 +336,7 @@ $(function() {
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "red")
-        .text(data.message);
+        .innerHTML = data.message;
     }
 
     if (ArrayOfMessages.includes("/green")) {
@@ -344,7 +344,7 @@ $(function() {
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "green")
-        .text(data.message);
+        .innerHTML = data.message;
     }
 
     if (ArrayOfMessages.includes("/blue")) {
@@ -352,7 +352,7 @@ $(function() {
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "blue")
-        .text(data.message);
+        .innerHTML = data.message;
     }
 
     /* if (
@@ -384,12 +384,12 @@ $(function() {
       !ArrayOfChars.includes(")") &&
       !ArrayOfChars.includes("#") */
     ) {
-      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+      var $messageBodyDiv = $('<span class="messageBody">').innerHTML = data.message;
     }
 
     var $usernameDiv = $('<span class="username"/>')
-      .text(data.username)
-      .css("color", getUsernameColor(data.username));
+      .css("color", getUsernameColor(data.username))
+      .innerHTML = data.username;
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
