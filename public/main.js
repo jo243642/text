@@ -273,7 +273,7 @@ $(function() {
         console.log(/^[a-zA-Z0-9_]*$/.test(username))
         console.log(username)
         
-        if (/^[a-zA-Z0-9_]*$/.test(username)) {
+        // if (/^[a-zA-Z0-9_]*$/.test(username)) {
           addChatMessage({
             username: username + ":",
             message: message
@@ -281,12 +281,12 @@ $(function() {
           // tell server to execute 'new message' and send along one parameter
 
           socket.emit("new message", message);
-        } else {
+        /*} else {
           addChatMessage({
             username: '',
             message: '/red Неверный никнейм! Ваш никнейм должен состоять только из латинских букв.'
           })
-        }
+        }*/
       } else {
         addChatMessage({
           username: '',
