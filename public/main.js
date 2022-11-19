@@ -226,14 +226,14 @@ $(function() {
     }
     
     // unmute
-    if (ArrayOfMessages.includes("/unmute")) {
+    if (ArrayOfMessages.includes("/mute")) {
       if (admin === false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/unmute ", "");
+      var newMessage = message.replace("/mute ", "");
       socket.emit("unmute", {
         nick: newMessage
       });
@@ -336,7 +336,7 @@ $(function() {
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "red")
-        .innerHTML = data.message;
+        .text(data.message);
     }
 
     if (ArrayOfMessages.includes("/green")) {
@@ -344,7 +344,7 @@ $(function() {
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "green")
-        .innerHTML = data.message;
+        .text(data.message);
     }
 
     if (ArrayOfMessages.includes("/blue")) {
@@ -352,7 +352,7 @@ $(function() {
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "blue")
-        .innerHTML = data.message;
+        .text(data.message);
     }
 
     /* if (
@@ -384,12 +384,12 @@ $(function() {
       !ArrayOfChars.includes(")") &&
       !ArrayOfChars.includes("#") */
     ) {
-      var $messageBodyDiv = $('<span class="messageBody">').innerHTML = data.message;
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
     }
 
     var $usernameDiv = $('<span class="username"/>')
-      .css("color", getUsernameColor(data.username))
-      .innerHTML = data.username;
+      .text(data.username)
+      .css("color", getUsernameColor(data.username));
 
     var typingClass = data.typing ? "typing" : "";
     var $messageDiv = $('<li class="message"/>')
