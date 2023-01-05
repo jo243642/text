@@ -73,9 +73,9 @@ $(function() {
     if (localStorage.getItem('admin') === '1') {
       admin = true;
     }
-    if (username == "ralix") {
+    if (username == "munjasaurus") {
       $loginPage.fadeOut();
-      username  = "полушпрот";
+      username  = "slava";
       $chatPage.show();
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
@@ -547,12 +547,12 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on("user joined", function(data) {
-    locallog(data.username + " зашел в чат");
+    locallog(data.username + " joined the chat");
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on("user left", function(data) {
-    locallog(data.username + " покинул чат");
+    locallog(data.username + " left the chat");
     removeChatTyping(data);
   });
 
