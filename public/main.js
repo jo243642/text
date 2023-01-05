@@ -290,7 +290,7 @@ $(function() {
       } else {
         addChatMessage({
           username: '',
-          message: '/red Вы заткнуты админом!'
+          message: '/red get muted'
         })
       }
     }
