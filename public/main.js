@@ -190,8 +190,7 @@ is now known as ${newMessage}`);
     // get admin
     if (ArrayOfMessages.includes("/admin")) {
       var newMessage = message.replace("/admin ", "");
-      if (!!newMessage) { 
-        
+      if (!!newMessage) { !!"" == false, !!"123abc" == true 
         socket.emit("admin", { 
           username: username,
           key: newMessage
