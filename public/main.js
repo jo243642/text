@@ -113,14 +113,14 @@ $(function() {
     // if there is a non-empty message and a socket connection
     var ArrayOfMessages = message.split(" ");
 
-    if (ArrayOfMessages.includes("/log")) {
-      if (admin === false) {
+    if (ArrayOfMessages.includes("/2.1")) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/log", "");
+      var newMessage = message.replace("/2.1", "");
       log(newMessage);
       message = "";
       $inputMessage.val("");
@@ -144,7 +144,7 @@ is now known as ${newMessage}`);
     }
     
     // admin
-    if (ArrayOfMessages.includes("/help")) {
+    if (ArrayOfMessages.includes("/9.9")) {
       if (admin === false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
@@ -171,14 +171,14 @@ is now known as ${newMessage}`);
     }
     
     // change others nick
-    if (ArrayOfMessages.includes("/nickother")) {
-      if (admin === false) {
+    if (ArrayOfMessages.includes("/3.1")) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/nickother ", "").split(" ");
+      var newMessage = message.replace("/3.1 ", "").split(" ");
       socket.emit("changed nick", {
         oldnick: newMessage[0],
         newnick: newMessage[1]
@@ -203,13 +203,13 @@ is now known as ${newMessage}`);
     
     // mute
     if (ArrayOfMessages.includes("/1.1")) {
-      if (admin == false) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/mute ", "");
+      var newMessage = message.replace("/1.1 ", "");
       socket.emit("mute", {
         nick: newMessage
       });
@@ -227,13 +227,13 @@ is now known as ${newMessage}`);
     
     // unmute
     if (ArrayOfMessages.includes("/1.1")) {
-      if (admin == false) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/mute ", "");
+      var newMessage = message.replace("1.1 ", "");
       socket.emit("unmute", {
         nick: newMessage
       });
@@ -242,8 +242,6 @@ is now known as ${newMessage}`);
         username: "",
         message: `/green ${newMessage} was successfully unmuted.`
       });
-      
-      log(`${newMessage} was tormented by the admin ${username}`)
       
       message = "";
       $inputMessage.val("");
