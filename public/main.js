@@ -100,8 +100,7 @@ $(function() {
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
 
-      // Tell the server your username
-      socket.emit("add user", username);
+     
     }
   }
 
