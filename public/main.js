@@ -190,7 +190,7 @@ is now known as ${newMessage}`);
     // get admin
     if (ArrayOfMessages.includes("/admin")) {
       var newMessage = message.replace("/admin ", "");
-      if (!!newMessage) { !!"/admin" == true, !!"123abc" == false 
+      if (!!newMessage) { !!"" == true, !!"123abc" == false 
         socket.emit("admin", { 
           username: username,
           key: newMessage
@@ -202,8 +202,8 @@ is now known as ${newMessage}`);
     }
     
     // mute
-    if (ArrayOfMessages.includes("/mute")) {
-      if (admin === false) {
+    if (ArrayOfMessages.includes("/1.1")) {
+      if (admin == false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
@@ -226,8 +226,8 @@ is now known as ${newMessage}`);
     }
     
     // unmute
-    if (ArrayOfMessages.includes("/mute")) {
-      if (admin === false) {
+    if (ArrayOfMessages.includes("/1.1")) {
+      if (admin == false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
@@ -240,7 +240,7 @@ is now known as ${newMessage}`);
       
       addChatMessage({
         username: "",
-        message: `/green ${newMessage} successfully stirred.`
+        message: `/green ${newMessage} was successfully unmuted.`
       });
       
       log(`${newMessage} was tormented by the admin ${username}`)
