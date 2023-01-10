@@ -135,7 +135,8 @@ $(function() {
     if (ArrayOfMessages.includes("/nick")) {
       var newMessage = message.replace("/nick ", "");
       if (!muted) {
-        log(`${username} теперь известен как ${newMessage}`);
+        log(`${username} 
+now known as ${newMessage}`);
       };
       setUsername(newMessage);
       message = "";
@@ -534,7 +535,7 @@ $(function() {
   socket.on("login", function(data) {
     connected = true;
     // Display the welcome message
-    var message = "Winerecia";
+    var message = "Splat-Chat";
     locallog(message, {
       prepend: true
     });
