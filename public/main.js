@@ -152,17 +152,17 @@ is now known as ${newMessage}`);
       }
       
       addChatMessage({
-        username: "",
+        username: "Server Bot",
         message: "/log <message> - Display a system message in the chat"
       });
       
       addChatMessage({
-        username: "",
+        username: "Server Bot",
         message: "/nickother <old nickname> <new nickname> - Change another player's nickname"
       });
       
       addChatMessage({
-        username: "",
+        username: "Server Bot",
         message: "/red /red <message> - Red message"
       });
       
@@ -654,7 +654,5 @@ function TermsFunction() {
     x.style.display = "none";
   }
 }
-
-
 
 
