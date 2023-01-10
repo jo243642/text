@@ -248,6 +248,7 @@ is now known as ${newMessage}`);
         message: `/green ${newMessage} was successfully unmuted.`
       });
       
+      
       message = "";
       $inputMessage.val("");
     }
