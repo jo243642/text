@@ -113,14 +113,14 @@ $(function() {
     // if there is a non-empty message and a socket connection
     var ArrayOfMessages = message.split(" ");
 
-    if (ArrayOfMessages.includes("/2.1")) {
+    if (ArrayOfMessages.includes("~2")) {
       if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/2.1", "");
+      var newMessage = message.replace("~2", "");
       log(newMessage);
       message = "";
       $inputMessage.val("");
@@ -144,21 +144,25 @@ is now known as ${newMessage}`);
     }
     
     // admin
-    if (ArrayOfMessages.includes("/9.9")) {
-      if (admin === false) {
+    if (ArrayOfMessages.includes("~+")) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
-      
-      addChatMessage({
+       addChatMessage({
         username: "Server Bot",
-        message: "/log <message> - Display a system message in the chat"
+        message: "~1 <username> - Mutes others"
       });
       
       addChatMessage({
         username: "Server Bot",
-        message: "/nickother <old nickname> <new nickname> - Change another player's nickname"
+        message: "~2 <message> - Display a system message in the chat"
+      });
+      
+      addChatMessage({
+        username: "Server Bot",
+        message: "~3 <old nickname> <new nickname> - Change another player's nickname"
       });
       
       addChatMessage({
@@ -171,14 +175,14 @@ is now known as ${newMessage}`);
     }
     
     // change others nick
-    if (ArrayOfMessages.includes("/3.1")) {
+    if (ArrayOfMessages.includes("~3")) {
       if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/3.1 ", "").split(" ");
+      var newMessage = message.replace("~3 ", "").split(" ");
       socket.emit("changed nick", {
         oldnick: newMessage[0],
         newnick: newMessage[1]
@@ -202,14 +206,14 @@ is now known as ${newMessage}`);
     }
     
     // mute
-    if (ArrayOfMessages.includes("/1.1")) {
+    if (ArrayOfMessages.includes("~1")) {
       if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("/1.1 ", "");
+      var newMessage = message.replace("~1 ", "");
       socket.emit("mute", {
         nick: newMessage
       });
@@ -226,14 +230,14 @@ is now known as ${newMessage}`);
     }
     
     // unmute
-    if (ArrayOfMessages.includes("/1.1")) {
+    if (ArrayOfMessages.includes("~1")) {
       if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
       }
       
-      var newMessage = message.replace("1.1 ", "");
+      var newMessage = message.replace("~1 ", "");
       socket.emit("unmute", {
         nick: newMessage
       });
@@ -288,7 +292,7 @@ is now known as ${newMessage}`);
       } else {
         addChatMessage({
           username: '',
-          message: '/red get muted'
+          message: '/red you are muted'
         })
       }
     }
