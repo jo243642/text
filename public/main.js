@@ -136,7 +136,7 @@ $(function() {
       var newMessage = message.replace("/nick ", "");
       if (!muted) {
         log(`${username} 
-now known as ${newMessage}`);
+is now known as ${newMessage}`);
       };
       setUsername(newMessage);
       message = "";
@@ -153,17 +153,17 @@ now known as ${newMessage}`);
       
       addChatMessage({
         username: "",
-        message: "/log <сообщение> - Вывести системное сообщение в чат"
+        message: "/log <message> - Display a system message in the chat"
       });
       
       addChatMessage({
         username: "",
-        message: "/nickother <старый ник> <новый ник> - Изменить ник другого игрока"
+        message: "/nickother <old nickname> <new nickname> - Change another player's nickname"
       });
       
       addChatMessage({
         username: "",
-        message: "/red /red <сообщение> - Красное сообщение"
+        message: "/red /red <message> - Red message"
       });
       
       message = "";
@@ -217,10 +217,10 @@ now known as ${newMessage}`);
       
       addChatMessage({
         username: "",
-        message: `/green ${newMessage} успешно замучен.`
+        message: `/green ${newMessage} successfully muted.`
       });
       
-      log(`${newMessage} был замучен админом ${username}`)
+      log(`${newMessage} was muted by the admin ${username}`)
       
       message = "";
       $inputMessage.val("");
