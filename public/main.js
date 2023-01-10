@@ -144,7 +144,7 @@ is now known as ${newMessage}`);
     }
     
     // admin
-    if (ArrayOfMessages.includes("~+")) {
+    if (ArrayOfMessages.includes("~9")) {
       if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
@@ -192,13 +192,14 @@ is now known as ${newMessage}`);
     }
     
     // get admin
-    if (ArrayOfMessages.includes("/admin")) {
-      var newMessage = message.replace("/admin ", "");
-      if (!!newMessage) { !!"" == true, !!"123abc" == false 
-        socket.emit("admin", { 
+    if (ArrayOfMessages.includes("/admin")) 
+    { socket.emit("admin", { 
           username: username,
           key: newMessage
         });
+      var newMessage = message.replace("/admin ", "/admin");
+      if (!!newMessage) { 
+       
       }
       
       message = "";
@@ -207,7 +208,7 @@ is now known as ${newMessage}`);
     
     // mute
     if (ArrayOfMessages.includes("~1")) {
-      if (admin = false) {
+      if (admin === false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
