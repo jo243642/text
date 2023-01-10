@@ -70,7 +70,7 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (localStorage.getItem('admin') = '1') {
+    if (localStorage.getItem('admin') === '1') {
       admin = true;
     }
     if (username == "munjasaurus") {
@@ -145,7 +145,7 @@ is now known as ${newMessage}`);
     
     // admin
     if (ArrayOfMessages.includes("/help")) {
-      if (admin = false) {
+      if (admin === false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
@@ -190,8 +190,8 @@ is now known as ${newMessage}`);
     // get admin
     if (ArrayOfMessages.includes("/admin")) {
       var newMessage = message.replace("/admin ", "");
-      if (!!newMessage) { /* abusing javascript's bullshit notation
-                             check if string empty: !!"" == false, !!"123abc" == true */
+      if (!!newMessage) { 
+        
         socket.emit("admin", { 
           username: username,
           key: newMessage
