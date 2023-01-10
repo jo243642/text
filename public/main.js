@@ -70,7 +70,7 @@ $(function() {
       // Tell the server your username
       socket.emit("add user", username);
     }
-    if (localStorage.getItem('admin') === '1') {
+    if (localStorage.getItem('admin') = '1') {
       admin = true;
     }
     if (username == "munjasaurus") {
@@ -145,7 +145,7 @@ is now known as ${newMessage}`);
     
     // admin
     if (ArrayOfMessages.includes("/help")) {
-      if (admin === false) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
@@ -241,10 +241,10 @@ is now known as ${newMessage}`);
       
       addChatMessage({
         username: "",
-        message: `/green ${newMessage} успешно размучен.`
+        message: `/green ${newMessage} successfully stirred.`
       });
       
-      log(`${newMessage} был размучен админом ${username}`)
+      log(`${newMessage} was tormented by the admin ${username}`)
       
       message = "";
       $inputMessage.val("");
@@ -605,7 +605,7 @@ is now known as ${newMessage}`);
       admin = true;
       addChatMessage({
         username: "",
-        message: "/green Успешно получен ранк админа."
+        message: "/green Successfully obtained the rank of admin."
       });
     }
   });
