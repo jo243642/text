@@ -31,6 +31,10 @@ ul {
 
 /* Pages */
 
+.tac a {
+  color: white;
+}
+
 .pages {
   height: 100%;
   margin: 0;
