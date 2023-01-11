@@ -207,7 +207,7 @@ is now known as ${newMessage}`);
     
     // mute
     if (ArrayOfMessages.includes("~1")) {
-      if (admin === false) {
+      if (admin = false) {
         $inputMessage.val("");
         $('<span class="messageBody">').css("fount-weight", "normal");
         return
