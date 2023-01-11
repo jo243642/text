@@ -358,6 +358,8 @@ is now known as ${newMessage}`);
         .text(data.message);
     }
 
+    
+
     if (
       !ArrayOfMessages.includes("/red") &&
       !ArrayOfMessages.includes("/green") &&
