@@ -358,27 +358,6 @@ is now known as ${newMessage}`);
         .text(data.message);
     }
 
-    /* if (
-      ArrayOfChars.includes("(") &&
-      ArrayOfChars.includes(")") &&
-      ArrayOfChars.includes("#")
-    ) {
-      var newMessage = message.replace("(", "");
-      newMessage = newMessage.replace(")", "");
-
-      var newMessage0 = newMessage.split(" ");
-      var colorForBody = newMessage0[0];
-
-      var message = message.replace("(" + colorForBody + ")", "");
-      data.message = message;
-
-      console.log(data.message);
-      console.log(colorForBody);
-      var $messageBodyDiv = $('<span class="messageBody">')
-        .css("color", colorForBody)
-        .text(data.message);
-    } */ // what's up with that bullshit???
-
     if (
       !ArrayOfMessages.includes("/red") &&
       !ArrayOfMessages.includes("/green") &&
