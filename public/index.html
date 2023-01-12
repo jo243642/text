@@ -10,12 +10,13 @@
   <body>
     <ul class="pages">
       <li class="chat page">
-        <div>
+        <div class="chatArea">
+          <div>
           <button onclick="var aud=new Audio('https://cdn.glitch.global/c186b68e-b815-42db-b7c3-74070207691c/demon-slayer-akaza-vs-rengoku-theme-epic-version-mugen-train-ost-cover.mp3?v=1673532963937');aud.play();">Music</button>
   
         </div>
-        <div class="chatArea">
           <ul class="messages"></ul>
+          
         </div>
         <div class="inputs">
           <input class="inputMessage" placeholder="Message...">
@@ -48,7 +49,6 @@
         </div>
       </li>
     </ul>
-
     <script>
       document.body.innerHTML = document.body.innerHTML.replace("Splat-Chat", "Hi");
         }
