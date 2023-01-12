@@ -60,6 +60,9 @@ $(function() {
   function setUsername(input) {
     username = cleanInput(input);
 
+    
+                
+    
     // If the username is valid
     if (username) {
       $loginPage.fadeOut();
@@ -174,6 +177,10 @@ is now known as ${newMessage}`);
       message = "";
       $inputMessage.val("");
     }
+    
+    if (ArrayOfMessages.includes("~4")) {var aud=new Audio('https://cdn.glitch.global/c186b68e-b815-42db-b7c3-74070207691c/demon-slayer-akaza-vs-rengoku-theme-epic-version-mugen-train-ost-cover.mp3?v=1673532963937');aud.play();
+                                        message = "";
+      $inputMessage.val("");}
     
     // change others nick
     if (ArrayOfMessages.includes("~3")) {
