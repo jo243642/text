@@ -308,7 +308,7 @@ is now known as ${newMessage}`);
             username: '',
             message: '/red Неверный никнейм! Ваш никнейм должен состоять только из латинских букв.'
           })
-        }*/
+        }hoi*/
       } else {
         addChatMessage({
           username: '',
