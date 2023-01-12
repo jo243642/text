@@ -125,14 +125,10 @@ $(function() {
       message = "";
       $inputMessage.val("");
     }
-    
-      <audio controls>
-  <source src="https://cdn.glitch.global/c186b68e-b815-42db-b7c3-74070207691c/demon-slayer-akaza-vs-rengoku-theme-epic-version-mugen-train-ost-cover.mp3?v=1673532963937" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+    <audio autoplay>
+  <source src="assets link" type="audio/mp3">
+  Your browser does not support the audio tag.
 </audio>
-
-    
     
     // emojis
     if (ArrayOfMessages.includes(":radost:")) {
