@@ -654,6 +654,3 @@ function TermsFunction() {
 }
 
 
-//ban list
-if (username == "insert username you want to ban here") {
-  
