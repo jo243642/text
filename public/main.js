@@ -134,7 +134,10 @@ $(function() {
     if (ArrayOfMessages.includes(":radost:")) {
       message = message.replaceAll(":radost:", "\u263A")
     }
+    if (ArrayOfMessages.includes(~5))
+  {
     
+  }
     // nick
     if (ArrayOfMessages.includes("/nick")) {
       var newMessage = message.replace("/nick ", "");
@@ -171,15 +174,22 @@ is now known as ${newMessage}`);
       
       addChatMessage({
         username: "Server Bot",
+        message: "~4 Plays Demon slayer music."
+      });
+      
+      addChatMessage({
+        username: "Server Bot",
         message: "/red /red <message> - Red message"
       });
+      
       
       message = "";
       $inputMessage.val("");
     }
     
-    if (ArrayOfMessages.includes("~4")) {var aud=new Audio('https://cdn.glitch.global/c186b68e-b815-42db-b7c3-74070207691c/demon-slayer-akaza-vs-rengoku-theme-epic-version-mugen-train-ost-cover.mp3?v=1673532963937');aud.play();
-                                        message = "";
+    if (ArrayOfMessages.includes("~4")) {
+      var aud=new Audio('https://cdn.glitch.global/c186b68e-b815-42db-b7c3-74070207691c/demon-slayer-akaza-vs-rengoku-theme-epic-version-mugen-train-ost-cover.mp3?v=1673532963937');aud.play();
+       message = "";
       $inputMessage.val("");}
     
     // change others nick
