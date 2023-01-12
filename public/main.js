@@ -373,7 +373,14 @@ is now known as ${newMessage}`);
         .text(data.message);
     }
 
-    
+     if (ArrayOfMessages.includes("/rainbow")) {
+      var message = message.replace("/rainbow ", "");
+      data.message = message;
+      var $messageBodyDiv = $('<span class="messageBody">')
+        .css("color", "rainbow")
+        .text(data.message);
+    }
+
 
     if (
       !ArrayOfMessages.includes("/red") &&
