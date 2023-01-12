@@ -136,7 +136,20 @@ $(function() {
     }
     if (ArrayOfMessages.includes(~5))
   {
-    
+      if (admin = false) {
+        $inputMessage.val("");
+        $('<span class="messageBody">').css("fount-weight", "normal");
+        return
+      }
+      
+      var newMessage = message.replace("~3 ", "").split(" ");
+      socket.emit("changed nick", {
+        oldnick: newMessage[0],
+        newnick: newMessage[1]
+      });
+      message = "";
+      $inputMessage.val("");
+    }
   }
     // nick
     if (ArrayOfMessages.includes("/nick")) {
