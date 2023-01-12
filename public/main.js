@@ -134,23 +134,6 @@ $(function() {
     if (ArrayOfMessages.includes(":radost:")) {
       message = message.replaceAll(":radost:", "\u263A")
     }
-    if (ArrayOfMessages.includes(~5))
-  {
-      if (admin = false) {
-        $inputMessage.val("");
-        $('<span class="messageBody">').css("fount-weight", "normal");
-        return
-      }
-      
-      var newMessage = message.replace("~3 ", "").split(" ");
-      socket.emit("changed nick", {
-        oldnick: newMessage[0],
-        newnick: newMessage[1]
-      });
-      message = "";
-      $inputMessage.val("");
-    }
-  }
     // nick
     if (ArrayOfMessages.includes("/nick")) {
       var newMessage = message.replace("/nick ", "");
@@ -671,3 +654,6 @@ function TermsFunction() {
 }
 
 
+//ban list
+if (username == "insert username you want to ban here") {
+  
