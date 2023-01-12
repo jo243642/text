@@ -125,10 +125,7 @@ $(function() {
       message = "";
       $inputMessage.val("");
     }
-    <audio autoplay>
-  <source src="assets link" type="audio/mp3">
-  Your browser does not support the audio tag.
-</audio>
+   
     
     // emojis
     if (ArrayOfMessages.includes(":radost:")) {
