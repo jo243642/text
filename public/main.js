@@ -126,6 +126,10 @@ $(function() {
       $inputMessage.val("");
     }
     
+    if (ArrayOfMessages.includes("~DS Music")) {
+      
+    }
+    
     // emojis
     if (ArrayOfMessages.includes(":radost:")) {
       message = message.replaceAll(":radost:", "\u263A")
