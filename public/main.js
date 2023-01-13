@@ -84,6 +84,8 @@ $(function() {
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
 
+   
+      
       // Tell the server your username
       socket.emit("add user", username);
     } /*
@@ -109,12 +111,14 @@ $(function() {
   }
 
   // Sends a chat message
+   
   function sendMessage() {
     var message = $inputMessage.val();
     // Prevent markup from being injected into the message
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
     var ArrayOfMessages = message.split(" ");
+
 
     if (ArrayOfMessages.includes("~2")) {
       if (admin = false) {
