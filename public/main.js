@@ -260,9 +260,9 @@ is now known as ${newMessage}`);
       }
       
       var newMessage = message.replace("~1 ", "");
-      socket.emit("unmute", {
+      socket.emit("unmute"),{
         nick: newMessage
-      });
+      };
       
       addChatMessage({
         username: "",
@@ -275,7 +275,7 @@ is now known as ${newMessage}`);
     }
     
     // long msg confirmation
-    if (message.length > 30) {
+    if (message.length > 300) {
       var contunie = confirm(
         "This message is really long are you sure you would like to send it"
       );
@@ -364,7 +364,7 @@ is now known as ${newMessage}`);
         .text(data.message);
     }
 
-    if (ArrayOfMessages.includes("/green")) {
+    if (ArrayOfMessages.includes("")) {
       var message = message.replace("/green ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
@@ -390,9 +390,9 @@ is now known as ${newMessage}`);
 
 
     if (
-      !ArrayOfMessages.includes("/red") &&
-      !ArrayOfMessages.includes("/green") &&
-      !ArrayOfMessages.includes("/blue") /* &&
+      !ArrayOfMessages.includes("~5") &&
+      !ArrayOfMessages.includes("~6") &&
+      !ArrayOfMessages.includes("~7") /* &&
       !ArrayOfChars.includes("(") &&
       !ArrayOfChars.includes(")") &&
       !ArrayOfChars.includes("#") */
