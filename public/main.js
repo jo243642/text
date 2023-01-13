@@ -356,40 +356,41 @@ is now known as ${newMessage}`);
     var ArrayOfChars = Array.from(data.message);
     var message = data.message;
 
-    if (ArrayOfMessages.includes("/red")) {
-      var message = message.replace("/red ", "");
+    if (ArrayOfMessages.includes("~5")) {
+      var message = message.replace("~5 ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "red")
         .text(data.message);
     }
 
-    if (ArrayOfMessages.includes("")) {
-      var message = message.replace("/green ", "");
+    if (ArrayOfMessages.includes("~6")) {
+      var message = message.replace("~6 ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "green")
         .text(data.message);
     }
 
-    if (ArrayOfMessages.includes("/blue")) {
-      var message = message.replace("/blue ", "");
+    if (ArrayOfMessages.includes("~7")) {
+      var message = message.replace("~7 ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
         .css("color", "blue")
         .text(data.message);
     }
 
-     if (ArrayOfMessages.includes("/rainbow")) {
-      var message = message.replace("/rainbow ", "");
+     if (ArrayOfMessages.includes("~8")) {
+      var message = message.replace("~8 ", "");
       data.message = message;
       var $messageBodyDiv = $('<span class="messageBody">')
-        .css("color", "rainbow")
+        .css("color", "yellow")
         .text(data.message);
     }
 
 
     if (
+      !ArrayOfMessages.includes("~8") &&
       !ArrayOfMessages.includes("~5") &&
       !ArrayOfMessages.includes("~6") &&
       !ArrayOfMessages.includes("~7") /* &&
