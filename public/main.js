@@ -84,7 +84,8 @@ $(function() {
       $loginPage.off("click");
       $currentInput = $inputMessage.focus();
 
-   
+
+      
       
       // Tell the server your username
       socket.emit("add user", username);
@@ -274,7 +275,7 @@ is now known as ${newMessage}`);
     }
     
     // long msg confirmation
-    if (message.length > 300) {
+    if (message.length > 30) {
       var contunie = confirm(
         "This message is really long are you sure you would like to send it"
       );
